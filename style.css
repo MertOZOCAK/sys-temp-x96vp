@@ -1,0 +1,671 @@
+/* 1. Temel Ayarlar ve Renk Tanımlamaları */
+:root {
+    --primary: #f1c40f;
+    --bg-dark: #0a0a0a;
+    --bg-card: #141414;
+    --text-white: #ffffff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark); /* Sayfa arka planı siyah */
+    color: var(--text-white);
+}
+
+/* 2. Kayan Duyuru Bandı */
+.top-bar {
+    height: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    color: black;
+    overflow: hidden; 
+    white-space: nowrap; 
+    position: relative;
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.scrolling-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 50s linear infinite;
+}
+
+.scrolling-text span {
+    margin-right: 300px;
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* 3. Navigasyon / Header */
+header {
+    height: 7vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 20px;
+    background: rgba(0, 0, 0, 0.9); /* Header siyah kalsın */
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav a {
+    color: #bbb;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+}
+
+nav a.active, nav a:hover {
+    color: var(--primary);
+}
+
+.login-btn {
+    background: var(--primary);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
+}
+
+/* 4. Hero Bölümü (Ana Kapak) */
+.hero {
+    text-align: center;
+    height: 65vh; /* Ekran yüksekliğinin %65'i */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x600');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h2 {
+    color: var(--primary);
+    letter-spacing: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.hero h1 {
+    font-size: 64px;
+    margin: 0;
+    font-weight: 900;
+}
+
+.online-count {
+    margin-top: 10px;
+    color: #aaa;
+}
+
+.play-btn {
+    background: var(--primary);
+    border: none;
+    padding: 15px 50px;
+    font-size: 22px;
+    font-weight: 900;
+    border-radius: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.play-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
+}
+
+/* 5. Gaming Gecesi ve Geri Sayım */
+.gaming-night {
+    height: 25vh; /* Ekran yüksekliğinin %25'i */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    padding: 0 10%;
+    border-top: 2px solid #222;
+    box-sizing: border-box;
+}
+
+.gaming-info h3 {
+    color: var(--primary);
+    font-size: 28px;
+    margin: 0;
+}
+
+.gaming-info p {
+    color: #888;
+    margin-top: 5px;
+}
+
+.countdown {
+    display: flex;
+    gap: 15px;
+}
+
+.time-box {
+    text-align: center;
+    background: #111;
+    padding: 15px;
+    border-radius: 8px;
+    min-width: 80px;
+    border: 1px solid #333;
+}
+
+.time-box span {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--text-white);
+}
+
+.time-box label {
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+}
+
+/* 6. Oyun Kartları Bölümü */
+.section-title {
+    text-align: left;
+    /* Üst boşluğu 100px'den 30px'e düşürdük */
+    padding: 30px 10% 20px; 
+    margin-top: 0; /* Ekstra margin'i sıfırladık */
+    font-size: 24px;
+    letter-spacing: 2px;
+    clear: both;
+}
+
+/* Oyunlar başlığı için özel düzenleme */
+.section-title {
+    margin-bottom: 40px;
+    /* Üst boşluğu (padding-top) 30px'den 120px'e çıkardım, bu başlığı aşağı iter */
+    padding: 120px 10% 20px; 
+    margin-top: 0;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+}
+
+/* Oyun kartları konteynırı */
+.game-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    /* Kartların başlığa çok yapışmaması için margin-top'ı biraz artırdım */
+    margin-top: 40px; 
+    padding: 20px 0 100px; /* Sayfanın en altıyla arasına ferah bir boşluk bıraktım */
+}
+
+.game-card {
+    height: 180px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #222;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    background-color: #111;
+}
+
+/* HTML'den gelen resmin ayarları */
+.card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: transform 0.4s ease;
+}
+
+/* Karartma Katmanı */
+.game-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    transition: background 0.4s ease;
+    z-index: 1;
+}
+
+.game-card span {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.9);
+    pointer-events: none;
+}
+
+/* Hover Efektleri */
+.game-card:hover {
+    transform: scale(1.03);
+    border-color: #f1c40f;
+}
+
+.game-card:hover .card-bg {
+    transform: scale(1.1);
+}
+
+.game-card:hover::before {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Üstte kalan diğer içerikleri gizlemek istersen bu bloğu kullanabilirsin */
+/* Örnek: .news-section { display: none; } */
+/* --- En Son Haberler Bölümü --- */
+.news {
+    /* height: 100vh;  <-- Bu satırı siliyoruz veya Auto yapıyoruz */
+    height: auto; 
+    display: block; /* Flex-center yerine normal akışa geçiyoruz */
+    padding: 80px 10% 20px; /* Üstten boşluk, alttan minimum boşluk */
+    background-color: var(--bg-dark);
+    box-sizing: border-box;
+}
+
+.news .section-title {
+    margin-bottom: 40px;
+    margin-top: 0;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center; /* Başlığı ortalamak istersen */
+}
+
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2x2 düzeni */
+    gap: 25px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.news-card {
+    background: #0a0a0a;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 1px solid #1a1a1a;
+    display: block; /* Kartın tamamını tıklanabilir yapar */
+}
+
+.news-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.news-image {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.news-image h3 {
+    font-size: 32px;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 0 15px rgba(0,0,0,0.9);
+    z-index: 2;
+}
+
+/* Görsel karartma katmanı */
+.news-image::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.3);
+    z-index: 1;
+}
+
+.news-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(40, 40, 40, 0.7);
+    backdrop-filter: blur(8px);
+    color: #eee;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    border: 1px solid rgba(255,255,255,0.1);
+    z-index: 3;
+    text-transform: uppercase;
+}
+
+.news-content {
+    padding: 20px;
+}
+
+.news-content h4 {
+    font-size: 17px;
+    margin: 0 0 10px 0;
+    color: var(--primary); /* Sarı başlık vurgusu */
+    line-height: 1.3;
+}
+
+.news-content p {
+    font-size: 13.5px;
+    color: #999;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Hover durumunda resim efekti */
+.news-card:hover .news-image {
+    filter: brightness(1.1);
+}
+
+/* Başladı Yazısı Stili */
+.event-started {
+    color: #f1c40f; /* Mertix Sarısı */
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-align: center;
+    animation: glowPulse 1.5s infinite ease-in-out;
+    text-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
+    width: 100%;
+}
+
+/* Parlama ve Hafif Büyüme Animasyonu */
+@keyframes glowPulse {
+    0% { transform: scale(1); text-shadow: 0 0 10px rgba(241, 196, 15, 0.4); }
+    50% { transform: scale(1.05); text-shadow: 0 0 25px rgba(241, 196, 15, 0.8); }
+    100% { transform: scale(1); text-shadow: 0 0 10px rgba(241, 196, 15, 0.4); }
+}
+
+.chat-window {
+    position: fixed;
+    right: 30px;
+    bottom: 100px;
+    width: 320px;
+    height: 450px;
+    background: #111;
+    border: 2px solid #f1c40f;
+    border-radius: 15px;
+    display: none; /* JS ile 'flex' yapılacak */
+    flex-direction: column;
+    z-index: 10000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    overflow: hidden;
+
+    /* Animasyon Hazırlığı */
+    transform-origin: bottom right;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    transform: scale(0.1) translateY(20px);
+}
+
+/* Pencere Görünür Olduğunda */
+.chat-window.active {
+    display: flex; /* JS ile eklenecek */
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.chat-header {
+    background: #f1c40f;
+    color: #000;
+    padding: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Kapatma Butonu (Çarpı) */
+.chat-header button {
+    background: transparent;
+    border: none;
+    color: #000;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.2s ease, color 0.2s ease;
+    padding: 5px;
+}
+
+.chat-header button:hover {
+    transform: scale(1.2);
+    color: #333;
+}
+
+/* Gönder Butonu */
+.input-area button {
+    background: #f1c40f;
+    border: none;
+    color: #000;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.input-area button:hover {
+    background: #d4af37;
+    transform: scale(1.05);
+}
+
+.input-area button i {
+    font-size: 16px;
+}
+
+/* Input Alanını Güzelleştirme */
+.input-area input {
+    flex: 1;
+    background: #222;
+    border: 1px solid #333;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-area input:focus {
+    border-color: #f1c40f;
+}
+
+.message {
+    padding: 8px 12px;
+    border-radius: 10px;
+    max-width: 80%;
+    font-size: 14px;
+}
+
+.bot-msg { background: #222; color: #fff; align-self: flex-start; }
+.user-msg { background: #f1c40f; color: #000; align-self: flex-end; }
+
+.chat-footer { padding: 10px; border-top: 1px solid #222; }
+
+.quick-messages {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.quick-messages button {
+    background: #222;
+    border: 1px solid #f1c40f;
+    color: #f1c40f;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.input-area { display: flex; gap: 5px; }
+.input-area input {
+    flex: 1;
+    background: #222;
+    border: none;
+    padding: 8px;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Nokta Zıplama Animasyonu */
+.typing {
+    display: flex;
+    gap: 3px;
+    padding: 10px 15px;
+    background: #222;
+    border-radius: 10px;
+    width: fit-content;
+    align-self: flex-start;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: #f1c40f;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.dot:nth-child(1) { animation-delay: -0.32s; }
+.dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+    0%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+}
+
+/* Mesaj Belirme Animasyonu */
+.message {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sabit Düğmeler Konteynırı */
+.fixed-buttons {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    display: flex;
+    flex-direction: row; /* Yan yana diz */
+    align-items: center; /* Dikeyde ortala */
+    gap: 15px; /* Aralarındaki boşluk */
+    z-index: 9999;
+}
+
+/* Yukarı Çık Düğmesi (Kare) */
+.scroll-top {
+    width: 45px;
+    height: 45px;
+    background-color: #222;
+    color: white;
+    border: 2px solid #333;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+    
+    /* Gizleme özellikleri */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px); /* Hafif aşağıda başlasın */
+}
+
+.scroll-top.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    background-color: #f1c40f;
+    color: #000;
+    border-color: #f1c40f;
+    transform: scale(1.1);
+}
+/* Sohbet Botu Düğmesi (Yuvarlak) */
+.chat-bot-btn {
+    width: 60px;
+    height: 60px;
+    background-color: #f1c40f;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.chat-bot-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(241, 196, 15, 0.4);
+}
+
+/* Küçük ekranlarda yazının taşmaması için */
+@media (max-width: 600px) {
+    .event-started {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+}
