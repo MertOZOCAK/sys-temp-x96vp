@@ -669,3 +669,139 @@ nav a.active, nav a:hover {
         letter-spacing: 2px;
     }
 }
+
+/* ============================================================
+   MOBILE OPTIMIZATION (Responsive Design)
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* 1. Header ve Navigasyon */
+    header {
+        height: auto;
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        margin: 0 5px;
+        font-size: 14px;
+    }
+
+    /* 2. Hero Bölümü */
+    .hero {
+        height: 50vh;
+    }
+
+    .hero h1 {
+        font-size: 36px; /* Yazıyı küçülttük */
+    }
+
+    .play-btn {
+        padding: 12px 30px;
+        font-size: 18px;
+    }
+
+    /* 3. Gaming Gecesi & Geri Sayım */
+    .gaming-night {
+        height: auto;
+        flex-direction: column;
+        padding: 30px 5%;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .countdown {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .time-box {
+        min-width: 60px;
+        padding: 10px;
+    }
+
+    /* 4. Oyun Kartları (2 sütundan 1 sütuna) */
+    .game-cards {
+        grid-template-columns: 1fr; /* Kartlar alt alta */
+        padding: 20px 5% 50px;
+        gap: 20px;
+    }
+
+    .game-card {
+        height: 150px;
+    }
+
+    /* 5. Haberler (2 sütundan 1 sütuna) */
+    .news-container {
+        grid-template-columns: 1fr;
+        padding: 0 5%;
+    }
+
+    .news-image h3 {
+        font-size: 24px;
+    }
+
+    /* 6. CHATBOT MOBİL GÖRÜNÜM (En Önemli Kısım) */
+    .chat-window {
+        right: 0;
+        bottom: 0;
+        width: 100%; /* Tam genişlik */
+        height: 100%; /* Tam ekran (isteğe bağlı) veya 80% */
+        border-radius: 0; /* Köşeleri sıfırla */
+        border: none;
+        z-index: 10001;
+    }
+
+    /* Mobilde chatbot açıkken sayfanın kaymasını engellemek gerekebilir */
+    .chat-window.active {
+        bottom: 0;
+        transform: scale(1) translateY(0);
+    }
+
+    .fixed-buttons {
+        right: 15px;
+        bottom: 15px;
+        gap: 10px;
+    }
+
+    .chat-bot-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .scroll-top {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Başlık ayarları */
+    .section-title {
+        padding: 60px 5% 20px !important;
+        font-size: 22px;
+    }
+}
+
+/* Çok küçük ekranlar (iPhone SE vb.) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+    
+    .time-box {
+        min-width: 50px;
+        padding: 8px;
+    }
+
+    .time-box span {
+        font-size: 20px;
+    }
+}
