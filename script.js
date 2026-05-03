@@ -1,7 +1,7 @@
 function updateTimer() {
     // Hedef tarih ayarı (Yıl, Ay-1, Gün, Saat, Dakika)
     // Örn: 15 Mayıs 2026, 18:00 için (2026, 4, 15, 18, 0, 0)
-    const targetDate = new Date(2026, 3, 10, 20, 0, 0).getTime(); 
+    const targetDate = new Date(2026, 10, 10, 20, 0, 0).getTime(); 
 
     const timerInterval = setInterval(() => {
         const now = new Date().getTime();
