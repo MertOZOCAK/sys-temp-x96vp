@@ -39,7 +39,7 @@ const translations = {
         footer_link_punishments: "Cezalandırmalar",
         footer_support_title: "Destek",
         footer_support_requests: "Destek Talepleri",
-        footer_copyright: "Copyright @ Mertix® tüm hakları saklıdır. © 2026"
+        footer_copyright: "Copyright Mertix® tüm hakları saklıdır. © 2026"
     },
     en: {
         top_bar_1: "DON'T MISS THE 50% DISCOUNT SPECIAL FOR TODAY IN THE STORE!",
@@ -81,7 +81,7 @@ const translations = {
         footer_link_punishments: "Punishments",
         footer_support_title: "Support",
         footer_support_requests: "Support Requests",
-        footer_copyright: "Copyright @ Mertix® all rights reserved. © 2026"
+        footer_copyright: "Copyright Mertix® all rights reserved. © 2026"
         
     }
 };
