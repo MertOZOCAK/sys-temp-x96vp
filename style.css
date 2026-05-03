@@ -961,13 +961,13 @@ nav a.active, nav a:hover {
     }
 
     .gaming-info h3 {
-        font-size: 1.4rem !important; /* Yazı boyutunu küçülttük ki sığsın */
+        font-size: 1.2rem !important; /* Yazı boyutunu küçülttük ki sığsın */
         margin: 0 !important;
         white-space: nowrap;
     }
 
     .gaming-info p {
-        font-size: 0.8rem !important;
+        font-size: 0.7rem !important;
         margin: 0 !important;
         white-space: nowrap;
     }
