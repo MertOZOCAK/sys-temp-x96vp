@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mertix Network • Minecraft Sunucusu</title>
+    <link rel="shortcut icon" href="res/logo.png" type="image/x-icon">  
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Üst Duyuru Bandı -->
+<div class="top-bar">
+    <div class="scrolling-text" id="topBarText">
+        <span data-key="top_bar_1">MAGAZADAKİ BUGÜNE ÖZEL %50 İNDİRİMİ KAÇIRMAYIN!</span>
+        <span data-key="top_bar_2">YENİ TOWNY SEZONU ÇOK YAKINDA SİZLERLE!</span>
+        <span data-key="top_bar_3">DİSCORD SUNUCUMUZA KATILMAYI UNUTMAYIN!</span>
+        <span data-key="top_bar_1">MAGAZADAKİ BUGÜNE ÖZEL %50 İNDİRİMİ KAÇIRMAYIN!</span>
+        <span data-key="top_bar_2">YENİ TOWNY SEZONU ÇOK YAKINDA SİZLERLE!</span>
+        <span data-key="top_bar_3">DİSCORD SUNUCUMUZA KATILMAYI UNUTMAYIN!</span>
+    </div>
+</div>
+
+    <header>
+        <div class="logo">
+        <h2 style="color: #f1c40f; margin: 0; font-weight: 900;">MERTIX</h2>
+    </div>
+        <nav>
+    <a href="#" class="active" data-key="nav_home">Anasayfa</a>
+    <a href="#games" data-key="nav_games">Oyunlar</a>
+    <a href="#news" data-key="nav_news">Haberler</a>
+    <a href="#" data-key="nav_shop">Mağaza</a>
+    <a href="#" data-key="nav_support">Destek</a>
+    <a href="#footer" data-key="nav_about">Hakkımızda</a>
+</nav>
+<button class="login-btn" data-key="btn_login">Giriş Yap ></button>
+    </header>
+
+    <main>
+        <section class="hero">
+    <h2 data-key="hero_sub">MERTIX NETWORK</h2>
+    <h1 data-key="hero_title">YENİ NESİL OYUN DENEYİMİ</h1>
+    <div class="online-count" data-key="hero_online">● 0 Oyuncu Aktif!</div>
+    <button class="play-btn" data-key="btn_join">Katıl</button>
+</section>
+
+        <!-- Gaming Gecesi & Geri Sayım -->
+        <section class="gaming-night">
+    <div class="gaming-content">
+        <div class="gaming-info">
+            <h3 data-key="gaming_title">GAMING GECESİ</h3>
+            <p data-key="gaming_sub">EFSANE FİYATLAR | MUHTEŞEM ÜRÜNLER!</p>
+        </div>
+        <div class="countdown" id="timer">
+            <div class="time-box"><span id="days">00</span><label data-key="timer_days">GÜN</label></div>
+            <div class="time-box"><span id="hours">00</span><label data-key="timer_hours">SAAT</label></div>
+            <div class="time-box"><span id="minutes">00</span><label data-key="timer_minutes">DAKİKA</label></div>
+            <div class="time-box"><span id="seconds">00</span><label data-key="timer_seconds">SANİYE</label></div>
+        </div>
+    </div>
+</section>
+
+        <!-- En Son Haberler Bölümü -->
+<section id="news" class="news">
+    <h2 class="section-title" data-key="title_news">EN SON HABERLER</h2>
+    <div class="news-container">
+        <!-- Haber Kartı 1 -->
+        <a href="news/news1.html" class="news-card">
+            <div class="news-image" style="background-image: url(res/tekblok.jpg);">
+                <span class="news-tag" data-key="tag_update">GÜNCELLEME</span>
+                <h3>TEKBLOK</h3>
+            </div>
+            <div class="news-content">
+                <h4>Tekblok Sunucusu 15 Ağustos'ta Yeni Sezona Geçiyor!</h4>
+                <p>Yeni sezon detayları ve eklenen özellikler hakkında bilgi almak için tıklayın.</p>
+            </div>
+        </a>
+
+        <!-- Haber Kartı 2 -->
+        <a href="news/news2.html" class="news-card">
+            <div class="news-image" style="background-image: url(res/survival.jpg);">
+                <span class="news-tag" data-key="tag_announcement">DUYURULAR</span>
+                <h3>SURVIVAL</h3>
+            </div>
+            <div class="news-content">
+                <h4>Survival Sunucusu 3 Mayıs 18.00'da Aktif!</h4>
+                <p>Efsanevi Survival deneyimi başlıyor. Hemen detaylara göz atın.</p>
+            </div>
+        </a>
+
+        <!-- Haber Kartı 3 -->
+        <a href="news/news3.html" class="news-card">
+            <div class="news-image" style="background-image: url(res/bedwars.jpg);">
+                <span class="news-tag" data-key="tag_announcement">DUYURULAR</span>
+                <h3>BEDWARS</h3>
+            </div>
+            <div class="news-content">
+                <h4>Bedwars Yeni Sezon 19 Nisan 18.00'da Aktif!</h4>
+                <p>Rekabet kızışıyor! Yeni haritalar ve ödüller sizi bekliyor.</p>
+            </div>
+        </a>
+
+        <!-- Haber Kartı 4 -->
+        <a href="news/news4.html" class="news-card">
+            <div class="news-image" style="background-image: url(res/towny.jpg);">
+                <span class="news-tag" data-key="tag_event">ETKİNLİK</span>
+                <h3>TOWNY</h3>
+            </div>
+            <div class="news-content">
+                <h4>Haftalık Towny Turnuvası Başlıyor!</h4>
+                <p>Krallığını kur, ordunu topla ve büyük ödülün sahibi ol.</p>
+            </div>
+        </a>
+    </div>
+</section>
+
+        <section id="games" class="games">
+    <h2 class="section-title" data-key="title_games">OYUNLAR</h2>
+    <div class="game-cards">
+    <!-- Tekblok -->
+    <div class="game-card">
+        <img src="res/tekblok.jpg" alt="Tekblok" class="card-bg">
+        <span>TEKBLOK</span>
+    </div>
+    <!-- Skyblock -->
+    <div class="game-card">
+        <img src="res/skyblock.png" alt="Skyblock" class="card-bg">
+        <span>SKYBLOCK</span>
+    </div>
+    <!-- Towny -->
+    <div class="game-card">
+        <img src="res/towny.jpg" alt="Towny" class="card-bg">
+        <span>TOWNY</span>
+    </div>
+    <!-- Survival -->
+    <div class="game-card">
+        <img src="res/survival.jpg" alt="Survival" class="card-bg">
+        <span>SURVIVAL</span>
+    </div>
+    <!-- Towny -->
+    <div class="game-card">
+        <img src="res/realms.jpg" alt="Realms" class="card-bg">
+        <span>Realms</span>
+    </div>
+    <!-- Survival -->
+    <div class="game-card">
+        <img src="res/bedwars.jpg" alt="Bedwars" class="card-bg">
+        <span>Bedwars</span>
+    </div>
+</div>
+</section>
+    </main>
+
+    <footer id="footer" class="main-footer">
+    <div class="footer-container">
+        <!-- Hakkımızda Kısmı -->
+        <div class="footer-section about">
+            <h3 data-key="footer_about_title">Hakkımızda</h3>
+            <p data-key="footer_about_content">Mertix Network, Türkiye'nin en yenilikçi Minecraft sunucularından biridir. Towny, Skyblock ve daha birçok oyun moduyla kesintisiz eğlence sunuyoruz.</p>
+            <div class="disclaimer">
+                Mertix is not affiliated with Mojang AB or Microsoft.
+            </div>
+            <div class="footer-logo-text">MERTIX</div>
+        </div>
+
+        <!-- Hızlı Linkler -->
+        <div class="footer-section links">
+    <h3 data-key="footer_quick_links">Hızlı Linkler</h3>
+    <ul>
+        <li><a href="#oyunlar" data-key="nav_games">Oyunlar</a></li>
+        <li><a href="#" data-key="nav_shop">Mağaza</a></li>
+        <li><a href="#" data-key="footer_link_punishments">Gaming Gecesi</a></li>
+        <li><a href="#" data-key="footer_support_title">Cezalandırmalar</a></li>
+    </ul>
+</div>
+
+        <!-- Destek -->
+        <div class="footer-section links">
+    <h3 data-key="nav_support">Destek</h3>
+    <ul>
+        <li><a href="#" data-key="footer_support_requests">Destek Talepleri</a></li>
+        <li><a href="#" data-key="footer_wiki">Wiki</a></li>
+    </ul>
+</div>
+
+        <!-- Sosyal Medya ve Dil -->
+        <div class="footer-section social">
+            <h3 data-key="footer_social">Sosyal Medya</h3>
+            <div class="social-icons">
+                <a href="#" class="icon discord"><i class="fab fa-discord"></i></a>
+                <a href="#" class="icon youtube"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="icon instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <h3 data-key="footer_lang">Ülke & Dil</h3>
+            <select class="language-select" id="langSelect">
+    <option value="tr">Türkçe</option>
+    <option value="en">English <p>(Beta)</p></option>
+</select>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+    <p data-key="footer_copyright">Copyright <strong>Mertix®</strong> tüm hakları saklıdır. © 2026</p>
+</div>
+</footer>
+
+    <!-- Chatbot Penceresi -->
+<div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+        <span data-key="chat_title">Mertix Destek Botu</span>
+        <button onclick="toggleChat()">&times;</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+        <!-- Mesajlar buraya gelecek -->
+    </div>
+    <div class="chat-footer">
+        <div class="quick-messages">
+            <button onclick="sendQuickMessage('Sunucu IP nedir?')" data-key="chat_quick_ip">IP?</button>
+            <button onclick="sendQuickMessage('Mağaza sorunları')" data-key="chat_quick_store">Mağaza</button>
+            <button onclick="sendQuickMessage('Yetkili başvurusu')" data-key="chat_quick_staff">Yetkili</button>
+        </div>
+        <div class="input-area">
+            <input type="text" id="chatInput" data-key="chat_input_placeholder" placeholder="Mesajınızı yazın...">
+            <button onclick="sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+    <!-- Sabit Düğmeler Grubu -->
+<div class="fixed-buttons">
+    <!-- Yukarı Çık Düğmesi -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-top" title="Yukarı Çık">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Sohbet Botu Düğmesi -->
+    <div class="chat-bot-btn" onclick="toggleChat()" title="Destek Sistemi">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+</div>
+<script src="language.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
