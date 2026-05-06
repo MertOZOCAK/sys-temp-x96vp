@@ -454,7 +454,7 @@ nav a.active, nav a:hover {
     display: block;
     width: 100%;
     text-align: center;
-    font-size: 3rem; /* Boyutu biraz büyüttüm */
+    font-size: 2.5em; /* Boyutu biraz büyüttüm */
     font-weight: 900;
     color: #f1c40f;
     text-transform: uppercase;
@@ -672,6 +672,9 @@ nav a.active, nav a:hover {
     overflow: hidden;
 
     /* Animasyon Hazırlığı */
+    background: rgba(17, 17, 17, 0.85) !important; /* Arka planı biraz şeffaf yapmalısın */
+    backdrop-filter: blur(8px); /* Bulanıklık şiddeti */
+    -webkit-backdrop-filter: blur(8px); /* Safari desteği için */
     transform-origin: bottom right;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 0;
@@ -918,12 +921,16 @@ nav a.active, nav a:hover {
    ============================================================ */
 
 @media (max-width: 768px) {
-    /* 1. Header & Navigasyon: Elemanları sıkıştırıyoruz */
+    /* 1. Header & Navigasyon */
     header {
         height: auto !important;
         flex-direction: column !important;
         padding: 10px !important;
         gap: 8px !important;
+    }
+
+    .scrolling-text span {
+        margin-right: 275px;
     }
 
     nav {
@@ -938,120 +945,146 @@ nav a.active, nav a:hover {
         margin: 0 2px !important;
     }
 
-    .login-btn {
-        padding: 6px 15px !important;
-        font-size: 13px !important;
-    }
-
-    /* 2. Hero Bölümü: Yüksekliği serbest bırakıyoruz */
+    /* 2. Hero Bölümü */
     .hero {
         height: auto !important;
-        min-height: fit-content !important;/* Sabit yükseklik zorlamasını kaldırdık */
-        padding-top: 40px !important;
-        padding-bottom: 20px !important; /* Butonun altındaki boşluğu daralttık */
+        padding-top: 30px !important;
+        padding-bottom: 20px !important;
         display: flex;
         flex-direction: column;
         align-items: center;
-        overflow: visible !important;
+        text-align: center;
     }
 
-    .hero h1 {
-        margin-top: 10px !important;
-        font-size: 28px !important;
-    }
+    .hero h1 { font-size: 24px !important; }
 
-    .hero p {
-        font-size: 1.1rem !important;
-        margin-bottom: 30px !important;
-    }
-
-    .hero .join-btn {
-        margin-bottom: 10px !important; /* Bu değeri düşürdükçe boşluk kapanır */
-    }
-
-    /* 2. Gaming Gecesi: Hero'dan sonra gelsin ve dikey boşlukları korusun */
+    /* 3. Gaming Night - TAM ÇÖZÜM */
     .gaming-night {
-        margin-top: 0 !important; /* Varsa üst dış boşluğu sıfırladık */
-        padding: 20px 5% !important;
+        margin: 0 !important;
+        padding: 20px 5% !important; /* Boşluğu minimize ettik */
         display: flex !important;
-        justify-content: flex-start !important; /* İçeriği yukarıda tut */
-        min-height: 30vh !important; /* Ekranın en az yarısını kaplasın */
-        padding-bottom: 100px !important;
         flex-direction: column !important;
         align-items: center !important;
-        background-color: #000 !important; /* Arka planın Hero ile bütünleşmesi için */
-        margin-bottom: 0 !important; /* Alt boşluğu sıfırlayarak diğer bölümlerle daha iyi geçiş yapar */
+        justify-content: flex-start !important; /* Her şeyi yukarı yasla */
+        min-height: auto !important; /* Yükseklik zorlamasını kaldırdık */
+        height: 300px !important;
+        background-color: #000 !important;
     }
 
     .gaming-info {
-        text-align: center !important;
-        margin: 0 !important;
+        margin-bottom: 0 !important; /* Bilgi kısmı ile sayaç arasını kapattık */
+        padding-bottom: 0 !important;
     }
 
     .gaming-info h3 {
-        font-size: 1.8rem !important;
-        margin-bottom: 10px !important;
+        font-size: 1.5rem !important; /* Yazıyı küçülttük */
+        margin-bottom: 5px !important;
     }
 
     .gaming-info p {
-        font-size: 0.75rem !important;
-        margin: 0 !important;
-        opacity: 0.8;
+        font-size: 0.7rem !important;
+        margin-bottom: 0 !important;
     }
 
     #timer {
-        margin-top: 20px !important;
-        padding-bottom: 20px !important;
+        margin-top: 10px !important; /* Sayacı yazıya iyice yaklaştırdık */
+        margin-bottom: 10px !important;
         display: flex !important;
-        flex-wrap: wrap !important; /* Sığmazsa aşağı kaysın, kesilmesin */
+        flex-direction: row !important; /* Yan yana diz */
         justify-content: center !important;
-        margin-bottom: 20px !important;
+        gap: 5px !important;
+        width: 100% !important;
+        height: auto !important;
     }
 
     .timer-box {
-        min-width: 45px !important; /* Kutuları daralttık */
-        padding: 5px !important;
-        margin-bottom: 10px !important;
+        min-width: 42px !important; /* Kutuları küçülttük ki sığsın */
+        padding: 5px 2px !important;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid #f1c40f;
+        border-radius: 6px;
     }
 
-    .event-started-wrapper {
-        font-size: 1.3rem !important;
-        padding: 5px 0 !important;
-        margin: 0 !important;
+    .timer-box span {
+        font-size: 13px !important;
+        font-weight: bold;
     }
 
-    /* Alt kısımdaki "Latest News" başlığının yukarı kaymaması için */
+    .timer-box small {
+        font-size: 7px !important;
+        display: block;
+    }
+
+    /* 4. Haberler ve Oyunlar (Genişlik ve Hizalama) */
     .section-title {
-        margin-top: 40px !important;
-        padding: 30px 5% 15px !important;
+        margin-top: 30px !important;
+        text-align: center !important;
+        font-size: 1.3rem !important;
     }
 
-    /* 4. Kartlar ve Haberler: Tek Sütun */
-    .game-cards, .news-container {
+    /* 1. Haberler ve Oyunlar Kapsayıcısı */
+    .news-container, 
+    .game-cards {
+        display: grid !important; /* Flex yerine kesin çözüm Grid */
         grid-template-columns: 1fr !important;
-        padding: 20px 5% !important;
-        gap: 15px !important;
-    }
-
-    .game-card {
-        height: 120px !important;
-    }
-
-    /* 5. Chatbot: Mobil tam ekran ayarı */
-    .chat-window {
+        justify-items: center !important; /* İçindeki kartları tam merkeze çiviler */
         width: 100% !important;
-        height: 100% !important;
-        bottom: 0 !important;
-        right: 0 !important;
-        border-radius: 0 !important;
+        padding: 0 !important; /* Kenar boşluklarını kartın genişliğiyle yöneteceğiz */
+        margin: 0 auto !important;
+        gap: 20px !important;
+        box-sizing: border-box !important;
     }
 
-    /* 6. Sabit Düğmeler */
+    /* 2. Haber ve Oyun Kartları (Genişlikleri Eşitlendi) */
+    .news-card, 
+    .game-card {
+        width: 90% !important; /* Sağ ve soldan %5 eşit boşluk bırakır */
+        max-width: 450px !important; /* Tabletlerde aşırı genişlemesini önler */
+        margin: 0 auto !important;
+        border-radius: 12px !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        background: #111 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. Haber Görselleri */
+    .news-card img {
+        width: 100% !important;
+        height: 180px !important;
+        object-fit: cover !important;
+        display: block !important;
+    }
+
+    /* 4. Haber İçerik Yazıları */
+    .news-card-content {
+        padding: 15px !important;
+        text-align: left !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .news-card-content h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 8px !important;
+        color: #f1c40f !important;
+        line-height: 1.2 !important;
+    }
+
+    .news-card-content p {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+        color: #ccc !important;
+    }
+
+    .game-card { height: 110px !important; }
+
+    /* 5. Alt Düğmeler */
     .fixed-buttons {
         right: 10px !important;
         bottom: 10px !important;
     }
-
 }
 
 
