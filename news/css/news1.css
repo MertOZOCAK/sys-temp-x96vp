@@ -392,6 +392,88 @@ body {
     border-bottom-color: var(--accent);
 }
 
+/* Yuvarlak Geri Dön Butonu */
+.back-button-circle {
+    position: absolute;
+    left: 40px; /* Görseldeki konuma göre ayarlandı */
+    top: 140px;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #f1c40f; /* Mertix Sarısı */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f1c40f;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.back-button-circle i {
+    font-size: 18px;
+    margin-right: 2px; /* Oku tam ortalamak için küçük bir düzeltme */
+}
+
+.back-button-circle:hover {
+    background: #f1c40f;
+    color: #111;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(241, 196, 15, 0.4);
+}
+
+/* Sabit Geri Dön Butonu */
+.back-button-fixed {
+    position: fixed; /* Sayfa kaysa da sabit kalır */
+    left: 30px;
+    top: 100px; /* Üst barın (top-bar) hemen altına gelecek şekilde ayarlandı */
+    width: 45px;
+    height: 45px;
+    background: rgba(17, 17, 17, 0.8); /* Arka planı biraz daha belirgin yaptık */
+    border: 2px solid #f1c40f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f1c40f;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 999; /* Diğer tüm içeriklerin üstünde durması için */
+    backdrop-filter: blur(5px); /* Arkasını hafif bulanıklaştırarak şıklık katar */
+}
+
+.back-button-fixed i {
+    font-size: 18px;
+    margin-right: 2px;
+}
+
+.back-button-fixed:hover {
+    background: #f1c40f;
+    color: #111;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(241, 196, 15, 0.5);
+}
+
+@media (max-width: 768px) {
+    .back-button-fixed {
+        left: 15px;
+        top: 90px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Mobil cihazlarda butonun yerini koruması için */
+@media (max-width: 768px) {
+    .back-button-circle {
+        left: 20px;
+        top: 130px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
 /* Sidebar mobilde haberin altına, masaüstünde sağda kalmaya devam eder */
 @media (max-width: 900px) {
     .content-grid {
