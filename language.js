@@ -126,4 +126,9 @@ function changeLanguage(lang) {
             }
         }
     });
+    localStorage.setItem("selectedLanguage", lang);
+
+    if (typeof applyLanguage === "function") {
+        applyLanguage(lang);
+    }
 }
