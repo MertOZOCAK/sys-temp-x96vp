@@ -1,7 +1,7 @@
 const newsTranslations = {
     tr: {
         // Genel Metinler
-        top_bar_1: "MAGAZADAKİ BUGÜNE ÖZEL %50 İNDİRİMİ KAÇIRMAYIN!",
+        top_bar_1: "MAĞAZADAKİ BUGÜNE ÖZEL %50 İNDİRİMİ KAÇIRMAYIN!",
         top_bar_2: "YENİ TOWNY SEZONU ÇOK YAKINDA SİZLERLE!",
         top_bar_3: "DİSCORD SUNUCUMUZA KATILMAYI UNUTMAYIN!",
         top_bar_4: "MERTIX DESTEK BOTU ERİŞİME KAPANMIŞTIR...",
