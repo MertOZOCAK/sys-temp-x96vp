@@ -4,7 +4,7 @@ const newsTranslations = {
         top_bar_1: "MAGAZADAKİ BUGÜNE ÖZEL %50 İNDİRİMİ KAÇIRMAYIN!",
         top_bar_2: "YENİ TOWNY SEZONU ÇOK YAKINDA SİZLERLE!",
         top_bar_3: "DİSCORD SUNUCUMUZA KATILMAYI UNUTMAYIN!",
-        top_bar_4: "MERTIX DESTES BOTU ERİŞİME KAPANMIŞTIR...",
+        top_bar_4: "MERTIX DESTEK BOTU ERİŞİME KAPANMIŞTIR...",
         other_news_title: "DİĞER HABERLER",
         comments_header: "YORUMLAR (1)",
         leave_comment: "BİR YORUM BIRAK",
