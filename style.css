@@ -116,8 +116,51 @@ nav a.active, nav a:hover {
 }
 
 .online-count {
-    margin-top: 10px;
-    color: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Eğer hero ortalıysa */
+    gap: 10px; /* Nokta ve yazı arasındaki boşluk */
+    font-size: 1.1rem;
+    color: #2ecc71;
+    margin: 15px 0;
+}
+
+/* 2. Ana Nokta Stili */
+.status-dot {
+    height: 12px;
+    width: 12px;
+    background-color: #2ecc71; /* Canlı Yeşil */
+    border-radius: 50%; /* Tam yuvarlak yap */
+    display: inline-block;
+    position: relative; /* Efektin konumlanması için gerekli */
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.7); /* Temel parlama */
+}
+
+/* 3. Noktanın Arkasındaki Dalgalanma Efekti (Pseudo-element) */
+.status-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: #2ecc71;
+    border-radius: 50%;
+    transform: translate(-50%, -50%); /* Tam merkezlemek için */
+    /* Animasyonu Buraya Bağla */
+    animation: statusPulse 3s ease-out infinite;
+}
+
+/* 4. Animasyonun Tanımı (Keyframes) */
+@keyframes statusPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2.5); /* Daha geniş bir yayılım */
+        opacity: 0; /* Geri sarmak yerine tamamen yok olur */
+    }
 }
 
 .play-btn {

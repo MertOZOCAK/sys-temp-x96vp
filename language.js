@@ -13,7 +13,7 @@ const translations = {
         btn_login: "Giriş Yap >",
         hero_sub: "MERTIX NETWORK",
         hero_title: "YENİ NESİL OYUN DENEYİMİ",
-        hero_online: "● 0 Oyuncu Aktif!",
+        hero_online: "0 Oyuncu Aktif!",
         btn_join: "Katıl",
         gaming_title: "GAMING GECESİ",
         gaming_sub: "EFSANE FİYATLAR | MUHTEŞEM ÜRÜNLER!",
