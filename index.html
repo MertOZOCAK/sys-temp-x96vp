@@ -17,9 +17,11 @@
         <span data-key="top_bar_1">MAGAZADAKİ BUGÜNE ÖZEL %50 İNDİRİMİ KAÇIRMAYIN!</span>
         <span data-key="top_bar_2">YENİ TOWNY SEZONU ÇOK YAKINDA SİZLERLE!</span>
         <span data-key="top_bar_3">DİSCORD SUNUCUMUZA KATILMAYI UNUTMAYIN!</span>
+        <span data-key="top_bar_4">MERTIX DESTEK BOTU ERİŞİME KAPANMIŞTIR...</span>
         <span data-key="top_bar_1">MAGAZADAKİ BUGÜNE ÖZEL %50 İNDİRİMİ KAÇIRMAYIN!</span>
         <span data-key="top_bar_2">YENİ TOWNY SEZONU ÇOK YAKINDA SİZLERLE!</span>
         <span data-key="top_bar_3">DİSCORD SUNUCUMUZA KATILMAYI UNUTMAYIN!</span>
+        <span data-key="top_bar_4">MERTIX DESTEK BOTU ERİŞİME KAPANMIŞTIR...</span>
     </div>
 </div>
 
@@ -47,7 +49,7 @@
 </section>
 
         <!-- Gaming Gecesi & Geri Sayım -->
-        <section class="gaming-night">
+        <section id="gaming_night" class="gaming-night">
     <div class="gaming-content">
         <div class="gaming-info">
             <h3 data-key="gaming_title">GAMING GECESİ</h3>
@@ -195,8 +197,10 @@
             </div>
             <h3 data-key="footer_lang">Ülke & Dil</h3>
             <select class="language-select" id="langSelect">
-    <option value="tr">Türkçe</option>
-    <option value="en">English <p>(Beta)</p></option>
+    <option data-key="lang_tr" value="tr">Türkçe</option>
+    <option data-key="lang_en" value="en">İngilizce <p>(Beta)</p></option>
+    <option data-key="lang_de" value="de">Almanca <p>(Beta)</p></option>
+    <option data-key="lang_fr" value="fr">Fransızca <p>(Beta)</p></option>
 </select>
         </div>
     </div>
@@ -216,11 +220,6 @@
         <!-- Mesajlar buraya gelecek -->
     </div>
     <div class="chat-footer">
-        <div class="quick-messages">
-            <button onclick="sendQuickMessage('Sunucu IP nedir?')" data-key="chat_quick_ip">IP?</button>
-            <button onclick="sendQuickMessage('Mağaza sorunları')" data-key="chat_quick_store">Mağaza</button>
-            <button onclick="sendQuickMessage('Yetkili başvurusu')" data-key="chat_quick_staff">Yetkili</button>
-        </div>
         <div class="input-area">
             <input type="text" id="chatInput" data-key="chat_input_placeholder" placeholder="Mesajınızı yazın...">
             <button onclick="sendMessage()">
@@ -244,5 +243,6 @@
 </div>
 <script src="language.js"></script>
     <script src="script.js"></script>
+    <script src="bot.js"></script>
 </body>
 </html>

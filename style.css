@@ -776,25 +776,6 @@ nav a.active, nav a:hover {
 
 .chat-footer { padding: 10px; border-top: 1px solid #222; }
 
-.quick-messages {
-    display: flex;
-    gap: 5px;
-    margin-bottom: 10px;
-    overflow-x: auto;
-    padding-bottom: 5px;
-}
-
-.quick-messages button {
-    background: #222;
-    border: 1px solid #f1c40f;
-    color: #f1c40f;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    cursor: pointer;
-    white-space: nowrap;
-}
-
 .input-area { display: flex; gap: 5px; }
 .input-area input {
     flex: 1;
@@ -908,6 +889,98 @@ nav a.active, nav a:hover {
     box-shadow: 0 6px 20px rgba(241, 196, 15, 0.4);
 }
 
+/* Botun mesajlarının altındaki detay butonu */
+.bot-detail-btn {
+    display: block;
+    width: 85%;
+    margin: 10px auto;
+    padding: 12px;
+    background: #f1c40f; /* Mertix Sarısı */
+    color: #000;
+    border: none;
+    border-radius: 8px; /* Dikdörtgen hatlar için az kavis */
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.bot-detail-btn:hover {
+    background: #d4ac0d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(241, 196, 15, 0.3);
+}
+
+/* Mesajlar arasında çok bitişik durmaması için */
+.message {
+    margin-bottom: 5px !important;
+}
+
+/* Mesaj balonunun içindeki buton konteynırı ayarı */
+.message.bot-msg.has-button {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8px; /* Buton için alt boşluk */
+}
+
+/* Mesajın içine gömülü buton stili */
+.bot-inline-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f1c40f; /* Mertix Sarısı */
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%; /* Balonun içini tam kaplasın */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.bot-inline-btn:hover {
+    background: #e1b30d;
+}
+
+/* Seçenek butonlarının kapsayıcısı */
+.quick-options-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+/* Tekil seçenek butonu stili */
+.quick-option-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #f1c40f;
+    color: #f1c40f;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quick-option-btn:hover {
+    background: #f1c40f;
+    color: #000;
+}
+
+/* Mobilde dokunma alanını netleştirelim */
+@media (max-width: 768px) {
+    .bot-inline-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
 /* Küçük ekranlarda yazının taşmaması için */
 @media (max-width: 600px) {
     .event-started {
@@ -922,6 +995,10 @@ nav a.active, nav a:hover {
 
 @media (max-width: 768px) {
     /* 1. Header & Navigasyon */
+    html{
+        scroll-behavior: smooth;
+    }
+
     header {
         height: auto !important;
         flex-direction: column !important;

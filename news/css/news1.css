@@ -21,7 +21,7 @@ body {
     display: flex;
     align-items: center;
     background-color: var(--primary);
-    color: rgb(0, 0, 0);
+    color: black;
     overflow: hidden; 
     white-space: nowrap; 
     position: relative;
@@ -455,6 +455,8 @@ body {
     box-shadow: 0 0 20px rgba(241, 196, 15, 0.5);
 }
 
+
+
 @media (max-width: 768px) {
     .back-button-fixed {
         left: 15px;
@@ -472,12 +474,18 @@ body {
         width: 40px;
         height: 40px;
     }
+
+
 }
 
 /* Sidebar mobilde haberin altına, masaüstünde sağda kalmaya devam eder */
 @media (max-width: 900px) {
     .content-grid {
         grid-template-columns: 1fr;
+    }
+
+    .scrolling-text span {
+        margin-right: 275px;
     }
 }
 

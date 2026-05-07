@@ -21,7 +21,7 @@ body {
     display: flex;
     align-items: center;
     background-color: var(--primary);
-    color: rgb(0, 0, 0);
+    color: black;
     overflow: hidden; 
     white-space: nowrap; 
     position: relative;
@@ -461,6 +461,10 @@ body {
         top: 90px;
         width: 40px;
         height: 40px;
+    }
+
+    .scrolling-text span {
+        margin-right: 275px;
     }
 }
 
