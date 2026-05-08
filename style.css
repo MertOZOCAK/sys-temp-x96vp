@@ -1036,174 +1036,318 @@ nav a.active, nav a:hover {
    MOBILE OPTIMIZATION (Responsive Design)
    ============================================================ */
 
+/* ============================================================
+   MOBILE OPTIMIZATION (Responsive Design) - GÜNCEL VERSİYON
+   ============================================================ */
+
 @media (max-width: 768px) {
-    /* 1. Header & Navigasyon */
-    html{
+
+    .desktop-only { display: none !important; }
+
+    html {
         scroll-behavior: smooth;
     }
 
+    /* Sayfa akışını kontrol etmek için main'i flex yapıyoruz */
+    main { 
+        display: flex !important; 
+        flex-direction: column !important; 
+    }
+
+    /* 1. Header & Navigasyon */
     header {
-        height: auto !important;
+        height: 70px !important;
+        padding: 0 20px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        position: sticky !important;
+        top: 0;
+        z-index: 1100 !important;
+        background: #000 !important;
+        width: 100%;
+        box-sizing: border-box;
+        /* İstediğin o alt sarı çizgi */
+        border-bottom: 1px solid #f1c40f !important; 
+    }
+
+    section {
+        scroll-margin-top: 70px; 
+    }
+
+    /* Dokununca Büyüyen Buton Efekti */
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 22px;
+        cursor: pointer;
+        z-index: 1200;
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* Basılı tutunca/tıklayınca büyüme */
+    .menu-toggle:active {
+        transform: scale(1.3);
+    }
+
+    .menu-toggle .bar {
+        width: 100%;
+        height: 3px;
+        background-color: #f1c40f;
+        border-radius: 10px;
+    }
+
+    /* X İşareti */
+    .menu-toggle.open .bar:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .menu-toggle.open .bar:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+    .menu-toggle.open .bar:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    /* Menü Paneli: Kaymayan Perde Sistemi */
+    .nav-container {
+        display: block !important; 
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.98);
+        border-bottom: 1px solid #f1c40f;
+        z-index: 1000;
+        /* Animasyon Ayarları */
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Menü Açıldığında */
+    .nav-container.active {
+        max-height: 450px; /* İçeriğe göre yükseklik */
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-links {
+        display: flex !important;
         flex-direction: column !important;
-        padding: 10px !important;
-        gap: 8px !important;
+        padding: 10px 0 !important;
+    }
+
+    .nav-links a {
+        padding: 15px 0 !important;
+        text-align: center !important;
+        font-size: 18px !important;
+        color: #fff !important;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        /* Linklerin tek tek gelme animasyonu */
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: 0.4s ease;
+    }
+
+    .nav-container.active .nav-links a {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.2s; /* Menü açıldıktan hemen sonra başlar */
+    }
+
+    .nav-links .active {
+        color: #f1c40f !important; /* Sarı renk vurgusu */
+    }
+
+    .nav-links a:active {
+        background: rgba(241, 196, 15, 0.2); /* Dokunmatik geri bildirim */
+        color: #f1c40f !important;
+    }
+
+
+    .mobile-only-login {
+        background-color: #f1c40f !important;
+        color: #000000 !important; /* Yazı rengi kesin siyah */
+        font-weight: 900 !important;
+        margin: 15px 20px !important; /* Biraz daha belirgin boşluk */
+        border-radius: 8px !important;
+        border: none !important;
+        text-align: center !important;
+        display: block !important;
+        text-decoration: none !important;
+    }
+
+    .nav-links a.mobile-only-login {
+        color: #000000 !important;
     }
 
     .scrolling-text span {
-        margin-right: 275px;
+        margin-right: 250px;
     }
 
     nav {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 8px !important;
+        gap: 10px !important;
     }
 
     nav a {
-        font-size: 11px !important;
-        margin: 0 2px !important;
+        font-size: 12px !important;
+        margin: 0 4px !important;
     }
 
-    /* 2. Hero Bölümü */
+    /* 2. Hero Bölümü - EKRANI KAPLASIN */
     .hero {
-        height: auto !important;
-        padding-top: 30px !important;
-        padding-bottom: 20px !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        order: 1 !important;
+        min-height: 80vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 0 15px !important;
     }
 
-    .hero h1 { font-size: 24px !important; }
+    .hero h2 { 
+        font-size: 24px !important; 
+        letter-spacing: 4px !important; 
+        color: #f1c40f !important; }
 
-    /* 3. Gaming Night - TAM ÇÖZÜM */
+    .hero h1 { 
+        font-size: 46px !important; 
+        font-weight: 900 !important;
+        line-height: 1.0 !important;
+        margin: 10px 0 25px 0 !important;
+    }
+
+    /* Online Sayacı */
+    .online-count {
+        font-size: 18px !important; /* Oyuncu sayısını da biraz büyüttük */
+        margin-bottom: 20px !important;
+        font-weight: 500 !important;
+    }
+
+   
+
+    .play-btn { 
+        padding: 20px 65px !important; 
+        font-size: 24px !important; 
+        border-radius: 12px !important; 
+    }
+
+    /* 3. Haberler Bölümü */
+    .news {
+        order: 2 !important; /* Hero'dan sonra */
+        padding: 40px 5% !important;
+        border-top: 1px solid #f1c40f !important; /* Altına belirgin bir çizgi ekledik */
+    }
+
+    .section-title {
+        margin-top: 20px !important;
+        padding: 20px 0 !important;
+        text-align: center !important;
+        font-size: 1.5rem !important;
+        width: 100% !important;
+    }
+
+    .news-container {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    /* 4. Oyunlar Bölümü */
+    .games {
+        order: 3 !important; /* Haberlerden sonra */
+        padding-bottom: 60px !important;
+        border-top: 1px solid #f1c40f !important; /* Altına belirgin bir çizgi ekledik */
+    }
+
+    .game-cards {
+        grid-template-columns: 1fr !important; /* Mobilde tek sütun daha şık */
+        padding: 0 5% !important;
+        gap: 15px !important;
+    }
+
+    .game-card { 
+        width: 100% !important;
+        height: 120px !important; 
+    }
+
+    /* 5. Gaming Gecesi - EN ALTA TAŞINDI VE ÇİZGİLİ */
     .gaming-night {
-        margin: 0 !important;
-        padding: 20px 5% !important; /* Boşluğu minimize ettik */
+        order: 4 !important; 
+        margin-top: 20px !important; /* Üstteki bölümle arasını biraz açtık */
+        padding: 30px 5% !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        justify-content: flex-start !important; /* Her şeyi yukarı yasla */
-        min-height: auto !important; /* Yükseklik zorlamasını kaldırdık */
-        height: 300px !important;
+        justify-content: center !important;
+        height: auto !important;
         background-color: #000 !important;
+        /* Belirgin Alt ve Üst Çizgiler */
+        border-top: 1px solid #f1c40f !important;
+        border-bottom: 1px solid #f1c40f !important;
+    }
+
+    .gaming-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important; /* Yazı ve sayaç arasındaki boşluğu minimize ettik */
     }
 
     .gaming-info {
-        margin-bottom: 0 !important; /* Bilgi kısmı ile sayaç arasını kapattık */
-        padding-bottom: 0 !important;
+        min-width: unset !important;
+        width: 100% !important;
+        text-align: center !important;
     }
 
     .gaming-info h3 {
-        font-size: 1.5rem !important; /* Yazıyı küçülttük */
+        font-size: 1.8rem !important;
         margin-bottom: 5px !important;
+        color: #f1c40f !important;
     }
 
     .gaming-info p {
-        font-size: 0.7rem !important;
-        margin-bottom: 0 !important;
+        display: block !important;
+        font-size: 1rem !important; /* Yazıyı daha okunabilir yaptık */
+        color: #fff !important;
+        margin: 0 0 15px 0 !important; /* Sayaçla arasına tatlı bir boşluk */
+        font-weight: 600 !important;
+        letter-spacing: 1px !important;
     }
 
     #timer {
-        margin-top: 10px !important; /* Sayacı yazıya iyice yaklaştırdık */
-        margin-bottom: 10px !important;
         display: flex !important;
-        flex-direction: row !important; /* Yan yana diz */
+        flex-direction: row !important;
         justify-content: center !important;
-        gap: 5px !important;
+        gap: 10px !important;
         width: 100% !important;
-        height: auto !important;
+        margin: 0 !important;
     }
 
-    .timer-box {
-        min-width: 42px !important; /* Kutuları küçülttük ki sığsın */
-        padding: 5px 2px !important;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid #f1c40f;
-        border-radius: 6px;
-    }
-
-    .timer-box span {
-        font-size: 13px !important;
-        font-weight: bold;
-    }
-
-    .timer-box small {
-        font-size: 7px !important;
-        display: block;
-    }
-
-    /* 4. Haberler ve Oyunlar (Genişlik ve Hizalama) */
-    .section-title {
-        margin-top: 30px !important;
-        text-align: center !important;
-        font-size: 1.3rem !important;
-    }
-
-    /* 1. Haberler ve Oyunlar Kapsayıcısı */
-    .news-container, 
-    .game-cards {
-        display: grid !important; /* Flex yerine kesin çözüm Grid */
-        grid-template-columns: 1fr !important;
-        justify-items: center !important; /* İçindeki kartları tam merkeze çiviler */
-        width: 100% !important;
-        padding: 0 !important; /* Kenar boşluklarını kartın genişliğiyle yöneteceğiz */
-        margin: 0 auto !important;
-        gap: 20px !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 2. Haber ve Oyun Kartları (Genişlikleri Eşitlendi) */
-    .news-card, 
-    .game-card {
-        width: 90% !important; /* Sağ ve soldan %5 eşit boşluk bırakır */
-        max-width: 450px !important; /* Tabletlerde aşırı genişlemesini önler */
-        margin: 0 auto !important;
-        border-radius: 12px !important;
-        overflow: hidden !important;
-        display: flex !important;
-        flex-direction: column !important;
+    .time-box {
+        min-width: 65px !important;
+        padding: 10px 5px !important;
         background: #111 !important;
-        box-sizing: border-box !important;
+        border: 1px solid rgba(241, 196, 15, 0.6) !important;
+        border-radius: 8px !important;
     }
 
-    /* 3. Haber Görselleri */
-    .news-card img {
-        width: 100% !important;
-        height: 180px !important;
-        object-fit: cover !important;
-        display: block !important;
-    }
-
-    /* 4. Haber İçerik Yazıları */
-    .news-card-content {
-        padding: 15px !important;
-        text-align: left !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .news-card-content h3 {
-        font-size: 1.1rem !important;
-        margin-bottom: 8px !important;
+    .time-box span { 
+        font-size: 22px !important; 
         color: #f1c40f !important;
-        line-height: 1.2 !important;
     }
 
-    .news-card-content p {
-        font-size: 0.85rem !important;
-        line-height: 1.4 !important;
-        color: #ccc !important;
+    .time-box label { 
+        font-size: 9px !important; 
+        color: #888 !important;
     }
 
-    .game-card { height: 110px !important; }
-
-    /* 5. Alt Düğmeler */
+    /* 6. Alt Düğmeler */
     .fixed-buttons {
-        right: 10px !important;
-        bottom: 10px !important;
+        right: 15px !important;
+        bottom: 15px !important;
     }
 }
 

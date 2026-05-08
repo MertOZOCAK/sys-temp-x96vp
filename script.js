@@ -1,3 +1,8 @@
+// Mobil Menü Yönetimi
+const menuToggle = document.getElementById('mobile-menu');
+const navContainer = document.querySelector('.nav-container');
+const navLinks = document.querySelectorAll('.nav-links a');
+
 function updateTimer() {
     const targetDate = new Date(2026, 4, 10, 20, 0, 0).getTime(); 
 
@@ -42,3 +47,17 @@ window.addEventListener('scroll', function() {
         scrollTopBtn.classList.remove('show');
     }
 });
+
+if (menuToggle && navContainer) {
+    // Menü butonuna tıklandığında aç/kapat
+    menuToggle.addEventListener('click', () => {
+        navContainer.classList.toggle('active');
+    });
+
+    // Herhangi bir menü linkine tıklandığında menüyü kapat
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navContainer.classList.remove('active');
+        });
+    });
+}
