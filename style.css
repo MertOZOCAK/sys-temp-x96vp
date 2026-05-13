@@ -60,6 +60,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid #f1c40f;
 }
 
 /* Logo Stili */
@@ -164,6 +165,7 @@ nav a.active, nav a:hover {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x600');
     background-size: cover;
     background-position: center;
+    border-bottom: 1px solid #f1c40f;
 }
 
 .hero h2 {
@@ -255,6 +257,7 @@ nav a.active, nav a:hover {
     padding: 40px 20px;
     border-top: 2px solid #222;
     box-sizing: border-box;
+    border-bottom: 1px solid #f1c40f;
 }
 
 .gaming-content {
@@ -438,6 +441,7 @@ nav a.active, nav a:hover {
     padding: 80px 10% 20px; /* Üstten boşluk, alttan minimum boşluk */
     background-color: var(--bg-dark);
     box-sizing: border-box;
+    border-bottom: 1px solid #f1c40f;
 }
 
 .news .section-title {
@@ -597,7 +601,7 @@ nav a.active, nav a:hover {
     color: #fff;
     padding: 60px 0 20px;
     font-family: 'Poppins', sans-serif;
-    border-top: 1px solid #1a1a1a;
+    border-top: 1px solid #f1c40f;
 }
 
 .footer-container {
@@ -1148,7 +1152,7 @@ nav a.active, nav a:hover {
         position: sticky !important;
         top: 0;
         z-index: 1100 !important;
-        background: #000 !important;
+        background-color: rgba(10, 10, 10, 0.95);
         width: 100%;
         box-sizing: border-box;
         /* İstediğin o alt sarı çizgi */
@@ -1241,12 +1245,19 @@ desktop-login {
         color: #000000 !important; /* Yazı rengi kesin siyah */
         font-weight: 900 !important;
         margin: 15px 20px !important; /* Biraz daha belirgin boşluk */
+        width: 125px !important; /* Butonun genişliğini artır */
         border-radius: 8px !important;
         border: none !important;
         text-align: center !important;
         display: block !important;
         text-decoration: none !important;
     }
+
+    .mobile-login:hover {
+        background-color: #d4ac0d !important; /* Hover durumunda biraz koyulaşır */
+        color: #000000 !important;
+    }
+  
 
     .nav-links a.mobile-login {
         color: #000000 !important;
