@@ -1,0 +1,1491 @@
+/* 1. Temel Ayarlar ve Renk Tanımlamaları */
+:root {
+    --primary: #f1c40f;
+    --bg-dark: #0a0a0a;
+    --bg-card: #141414;
+    --text-white: #ffffff;
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark); /* Sayfa arka planı siyah */
+    color: var(--text-white);
+}
+
+/* 2. Kayan Duyuru Bandı */
+.top-bar {
+    height: 35px; /* vh yerine sabit pixel mobilde daha stabil durur */
+    display: flex;
+    align-items: center;
+    background-color: var(--primary);
+    color: black;
+    overflow: hidden; 
+    white-space: nowrap; 
+    position: relative;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.scrolling-text {
+    display: inline-block;
+    white-space: nowrap;
+    /* Animasyon süresini metin uzunluğuna göre 20s-30s yapabilirsin */
+    animation: scroll-left 60s linear infinite;
+}
+
+.scrolling-text span {
+    margin-right: 600px;
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* %100 yerine %50 yaparak döngüyü kusursuzlaştırıyoruz */
+}
+
+/* 3. Navigasyon / Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: rgba(10, 10, 10, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo Stili */
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    height: 80px; /* Logonun boyutunu buradan ayarlayabilirsin */
+    width: auto;
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Tüm içeriği yatayda ortalar */
+    align-items: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+nav a {
+    color: #bbb;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+}
+
+nav a.active, nav a:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column; /* Logoyu üste, menüyü alta alarak tam simetri sağlar */
+    align-items: center;    /* Dikey eksende her şeyi ortalar */
+    justify-content: center;
+    gap: 25px;              /* Logo ile menü arasındaki boşluk */
+}
+
+/* Menü Linkleri */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 40px; /* Linkler arasındaki yatay boşluk */
+    padding: 0;
+    margin: 0;
+    justify-content: center; /* Linkleri kendi içinde ortalar */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: 500;
+    font-size: 16px;
+    white-space: nowrap; /* Yazıların kırılmasını önler */
+    transition: 0.3s;
+}
+
+.desktop-login {
+    display: flex !important;
+    white-space: nowrap; /* Yazının tek satırda kalmasını sağlar */
+    width: auto !important; /* Genişliği içeriği kadar yapar */
+    padding: 10px 20px !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-btn {
+    background-color: var(--primary);
+    color: black !important;
+    padding: 10px 24px !important;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto !important; /* Diğer sabit yükseklikleri ezsin */
+    border: none;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
+}
+
+/* 4. Hero Bölümü (Ana Kapak) */
+.hero {
+    text-align: center;
+    height: 65vh; /* Ekran yüksekliğinin %65'i */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x600');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h2 {
+    color: var(--primary);
+    letter-spacing: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.hero h1 {
+    font-size: 64px;
+    margin: 0;
+    font-weight: 900;
+}
+
+.online-count {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Eğer hero ortalıysa */
+    gap: 10px; /* Nokta ve yazı arasındaki boşluk */
+    font-size: 1.1rem;
+    color: #2ecc71;
+    margin: 15px 0;
+}
+
+/* 2. Ana Nokta Stili */
+.status-dot {
+    height: 12px;
+    width: 12px;
+    background-color: #2ecc71; /* Canlı Yeşil */
+    border-radius: 50%; /* Tam yuvarlak yap */
+    display: inline-block;
+    position: relative; /* Efektin konumlanması için gerekli */
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.7); /* Temel parlama */
+}
+
+/* 3. Noktanın Arkasındaki Dalgalanma Efekti (Pseudo-element) */
+.status-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: #2ecc71;
+    border-radius: 50%;
+    transform: translate(-50%, -50%); /* Tam merkezlemek için */
+    /* Animasyonu Buraya Bağla */
+    animation: statusPulse 3s ease-out infinite;
+}
+
+/* 4. Animasyonun Tanımı (Keyframes) */
+@keyframes statusPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2.5); /* Daha geniş bir yayılım */
+        opacity: 0; /* Geri sarmak yerine tamamen yok olur */
+    }
+}
+
+.play-btn {
+    background: var(--primary);
+    border: none;
+    padding: 15px 50px;
+    font-size: 22px;
+    font-weight: 900;
+    border-radius: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.play-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(241, 196, 15, 0.4);
+}
+
+/* 5. Gaming Gecesi ve Geri Sayım */
+.gaming-night {
+    height: 25vh; /* Ekran yüksekliğinin %25'i */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    background: #000;
+    padding: 40px 20px;
+    border-top: 2px solid #222;
+    box-sizing: border-box;
+}
+
+.gaming-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap; /* Mobilde alt alta inmesini sağlar */
+    align-items: center;
+    justify-content: space-between; /* İki uca yaslar */
+    gap: 30px;
+}
+
+.gaming-info {
+    flex: 1; /* Mevcut alanın bir kısmını kaplar */
+    min-width: 350px; /* Çok daralmasını engeller */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#timer {
+    flex: 2; /* Geri sayım veya mesaj alanı daha geniş olabilir */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+}
+
+.gaming-info h3 {
+    font-size: 2.5rem; /* Boyutu ciddi oranda artırdık */
+    font-weight: 900;
+    color: #f1c40f;
+    margin: 0;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.gaming-info p {
+    font-size: 1.2rem; /* Alt metni de biraz büyüttük */
+    color: #ccc;
+    margin-top: 10px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    /* Metin çok uzunsa ve sığmıyorsa hafifçe küçülmesi için */
+    max-width: 100%;
+}
+
+.countdown {
+    display: flex;
+    gap: 15px;
+}
+
+.time-box {
+    text-align: center;
+    background: #111;
+    padding: 15px;
+    border-radius: 8px;
+    min-width: 80px;
+    border: 1px solid #f1c40f;
+}
+
+.time-box span {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--text-white);
+}
+
+.time-box label {
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+}
+
+/* 6. Oyun Kartları Bölümü */
+.section-title {
+    text-align: left;
+    /* Üst boşluğu 100px'den 30px'e düşürdük */
+    padding: 30px 10% 20px; 
+    margin-top: 0; /* Ekstra margin'i sıfırladık */
+    font-size: 24px;
+    letter-spacing: 2px;
+    clear: both;
+}
+
+/* Oyunlar başlığı için özel düzenleme */
+.section-title {
+    margin-bottom: 40px;
+    /* Üst boşluğu (padding-top) 30px'den 120px'e çıkardım, bu başlığı aşağı iter */
+    padding: 120px 10% 20px; 
+    margin-top: 0;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+}
+
+/* Oyun kartları konteynırı */
+.game-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    /* Kartların başlığa çok yapışmaması için margin-top'ı biraz artırdım */
+    margin-top: 40px; 
+    padding: 20px 0 100px; /* Sayfanın en altıyla arasına ferah bir boşluk bıraktım */
+}
+
+.game-card {
+    height: 180px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #222;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    background-color: #111;
+}
+
+/* HTML'den gelen resmin ayarları */
+.card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: transform 0.4s ease;
+}
+
+/* Karartma Katmanı */
+.game-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    transition: background 0.4s ease;
+    z-index: 1;
+}
+
+.game-card span {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.9);
+    pointer-events: none;
+}
+
+/* Hover Efektleri */
+.game-card:hover {
+    transform: scale(1.03);
+    border-color: #f1c40f;
+}
+
+.game-card:hover .card-bg {
+    transform: scale(1.1);
+}
+
+.game-card:hover::before {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Üstte kalan diğer içerikleri gizlemek istersen bu bloğu kullanabilirsin */
+/* Örnek: .news-section { display: none; } */
+/* --- En Son Haberler Bölümü --- */
+.news {
+    /* height: 100vh;  <-- Bu satırı siliyoruz veya Auto yapıyoruz */
+    height: auto; 
+    display: block; /* Flex-center yerine normal akışa geçiyoruz */
+    padding: 80px 10% 20px; /* Üstten boşluk, alttan minimum boşluk */
+    background-color: var(--bg-dark);
+    box-sizing: border-box;
+}
+
+.news .section-title {
+    margin-bottom: 40px;
+    margin-top: 0;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center; /* Başlığı ortalamak istersen */
+}
+
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2x2 düzeni */
+    gap: 25px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.news-card {
+    background: #0a0a0a;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 1px solid #1a1a1a;
+    display: block; /* Kartın tamamını tıklanabilir yapar */
+}
+
+.news-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.news-image {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.news-image h3 {
+    font-size: 32px;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 0 15px rgba(0,0,0,0.9);
+    z-index: 2;
+}
+
+/* Görsel karartma katmanı */
+.news-image::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.3);
+    z-index: 1;
+}
+
+.news-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(40, 40, 40, 0.7);
+    backdrop-filter: blur(8px);
+    color: #eee;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    border: 1px solid rgba(255,255,255,0.1);
+    z-index: 3;
+    text-transform: uppercase;
+}
+
+.news-content {
+    padding: 20px;
+}
+
+.news-content h4 {
+    font-size: 17px;
+    margin: 0 0 10px 0;
+    color: var(--primary); /* Sarı başlık vurgusu */
+    line-height: 1.3;
+}
+
+.news-content p {
+    font-size: 13.5px;
+    color: #999;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Hover durumunda resim efekti */
+.news-card:hover .news-image {
+    filter: brightness(1.1);
+}
+
+/* Başladı Yazısı Stili */
+.event-started {
+    color: #f1c40f; /* Mertix Sarısı */
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: 5px;
+    text-align: center;
+    animation: glowPulse 1.5s infinite ease-in-out;
+    text-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
+    width: 100%;
+}
+
+/* Etkinlik başladı yazısının kapsayıcısı */
+.event-started-wrapper {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 2.5em; /* Boyutu biraz büyüttüm */
+    font-weight: 900;
+    color: #f1c40f;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    /* Animasyon Ayarları */
+    animation: pulse-glow 2s infinite ease-in-out;
+    
+    /* Parlama efekti */
+    text-shadow: 0 0 15px rgba(241, 196, 15, 0.7);
+    margin-top: 20px;
+}
+
+/* Parlama ve Hafif Büyüme Animasyonu */
+@keyframes pulse-glow {
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+    }
+    50% {
+        transform: scale(1.1); /* Hafif büyüme */
+        text-shadow: 0 0 30px rgba(241, 196, 15, 1), 0 0 50px rgba(241, 196, 15, 0.4);
+    }
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+    }
+}
+
+/* Footer Genel Stili */
+.main-footer {
+    background-color: #080808;
+    color: #fff;
+    padding: 60px 0 20px;
+    font-family: 'Poppins', sans-serif;
+    border-top: 1px solid #1a1a1a;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    padding: 0 5%;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Hakkımızda Alanı */
+.footer-section.about p {
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.disclaimer {
+    background: #1a1a1a;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #888;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.footer-logo-text {
+    font-family: 'Poppins', sans-serif; /* Veya projende kullandığın ana font */
+    font-weight: 900; /* Ekrandaki gibi çok kalın */
+    font-size: 28px;
+    color: #ffcc00; /* Logodaki sarı tonu */
+    letter-spacing: 1px;
+    margin-top: 15px;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    cursor: default;
+}
+
+.footer-logo-text:hover {
+    transform: scale(1.05); /* Üstüne gelince çok hafif büyüsün */
+}
+
+.footer-logo-text:hover {
+    transform: scale(1.05); /* Üstüne gelince çok hafif büyüsün */
+}
+
+/* Mobilde yazıyı biraz küçültelim */
+@media (max-width: 768px) {
+    .footer-logo-text {
+        font-size: 24px;
+        margin-top: 20px;
+    }
+}
+
+/* Linkler */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ffcc00; /* Senin sarı rengin */
+}
+
+/* Sosyal Medya ve Dil */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/* Sosyal medya ikonlarındaki alt çizgileri kaldırır */
+.social-icons .icon {
+    text-decoration: none !important; /* Linkin alt çizgisini siler */
+    display: inline-flex; /* İkonun kutu içinde tam ortalanmasını sağlar */
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icons .icon i {
+    text-decoration: none !important; /* İkonun kendisine uygulanan çizgiyi siler */
+    border: none !important; /* Varsa kenarlıkları kaldırır */
+}
+
+.social-icons .icon:hover {
+    transform: translateY(-3px); /* Hafifçe yukarı zıplatır */
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+}
+
+.icon {
+    width: 35px;
+    height: 35px;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.icon:hover {
+    background: #ffcc00;
+    color: #000;
+}
+
+.language-select {
+    background: #111;
+    color: #fff;
+    border: 1px solid #333;
+    padding: 8px 15px;
+    border-radius: 6px;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Telif Hakkı Kısmı */
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #1a1a1a;
+    font-size: 13px;
+    color: #666;
+}
+
+/* MOBİL UYUMLULUK */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Mobilde her şey alt alta */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .disclaimer {
+        display: block;
+    }
+}
+
+.chat-window {
+    position: fixed;
+    right: 30px;
+    bottom: 100px;
+    width: 320px;
+    height: 450px;
+    background: #111;
+    border: 2px solid #f1c40f;
+    border-radius: 15px;
+    display: none; /* JS ile 'flex' yapılacak */
+    flex-direction: column;
+    z-index: 10000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    overflow: hidden;
+
+    /* Animasyon Hazırlığı */
+    background: rgba(17, 17, 17, 0.85) !important; /* Arka planı biraz şeffaf yapmalısın */
+    backdrop-filter: blur(8px); /* Bulanıklık şiddeti */
+    -webkit-backdrop-filter: blur(8px); /* Safari desteği için */
+    transform-origin: bottom right;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    transform: scale(0.1) translateY(20px);
+}
+
+/* Pencere Görünür Olduğunda */
+.chat-window.active {
+    display: flex; /* JS ile eklenecek */
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.chat-header {
+    background: #f1c40f;
+    color: #000;
+    padding: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Kapatma Butonu (Çarpı) */
+.chat-header button {
+    background: transparent;
+    border: none;
+    color: #000;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.2s ease, color 0.2s ease;
+    padding: 5px;
+}
+
+.chat-header button:hover {
+    transform: scale(1.2);
+    color: #333;
+}
+
+/* Gönder Butonu */
+.input-area button {
+    background: #f1c40f;
+    border: none;
+    color: #000;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.input-area button:hover {
+    background: #d4af37;
+    transform: scale(1.05);
+}
+
+.input-area button i {
+    font-size: 16px;
+}
+
+/* Input Alanını Güzelleştirme */
+.input-area input {
+    flex: 1;
+    background: #222;
+    border: 1px solid #333;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-area input:focus {
+    border-color: #f1c40f;
+}
+
+.message {
+    padding: 8px 12px;
+    border-radius: 10px;
+    max-width: 80%;
+    font-size: 14px;
+}
+
+.bot-msg { background: #222; color: #fff; align-self: flex-start; }
+.user-msg { background: #f1c40f; color: #000; align-self: flex-end; }
+
+.chat-footer { padding: 10px; border-top: 1px solid #222; }
+
+.input-area { display: flex; gap: 5px; }
+.input-area input {
+    flex: 1;
+    background: #222;
+    border: none;
+    padding: 8px;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Nokta Zıplama Animasyonu */
+.typing {
+    display: flex;
+    gap: 3px;
+    padding: 10px 15px;
+    background: #222;
+    border-radius: 10px;
+    width: fit-content;
+    align-self: flex-start;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: #f1c40f;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.dot:nth-child(1) { animation-delay: -0.32s; }
+.dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+    0%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+}
+
+/* Mesaj Belirme Animasyonu */
+.message {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sabit Düğmeler Konteynırı */
+.fixed-buttons {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    display: flex;
+    flex-direction: row; /* Yan yana diz */
+    align-items: center; /* Dikeyde ortala */
+    gap: 15px; /* Aralarındaki boşluk */
+    z-index: 9999;
+}
+
+/* Yukarı Çık Düğmesi (Kare) */
+.scroll-top {
+    width: 45px;
+    height: 45px;
+    background-color: #222;
+    color: white;
+    border: 2px solid #333;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+    
+    /* Gizleme özellikleri */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px); /* Hafif aşağıda başlasın */
+}
+
+.scroll-top.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    background-color: #f1c40f;
+    color: #000;
+    border-color: #f1c40f;
+    transform: scale(1.1);
+}
+/* Sohbet Botu Düğmesi (Yuvarlak) */
+.chat-bot-btn {
+    width: 60px;
+    height: 60px;
+    background-color: #f1c40f;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.chat-bot-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(241, 196, 15, 0.4);
+}
+
+/* Botun mesajlarının altındaki detay butonu */
+.bot-detail-btn {
+    display: block;
+    width: 85%;
+    margin: 10px auto;
+    padding: 12px;
+    background: #f1c40f; /* Mertix Sarısı */
+    color: #000;
+    border: none;
+    border-radius: 8px; /* Dikdörtgen hatlar için az kavis */
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.bot-detail-btn:hover {
+    background: #d4ac0d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(241, 196, 15, 0.3);
+}
+
+/* Mesajlar arasında çok bitişik durmaması için */
+.message {
+    margin-bottom: 5px !important;
+}
+
+/* Mesaj balonunun içindeki buton konteynırı ayarı */
+.message.bot-msg.has-button {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8px; /* Buton için alt boşluk */
+}
+
+/* Mesajın içine gömülü buton stili */
+.bot-inline-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f1c40f; /* Mertix Sarısı */
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%; /* Balonun içini tam kaplasın */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.bot-inline-btn:hover {
+    background: #e1b30d;
+}
+
+/* Seçenek butonlarının kapsayıcısı */
+.quick-options-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+/* Tekil seçenek butonu stili */
+.quick-option-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #f1c40f;
+    color: #f1c40f;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quick-option-btn:hover {
+    background: #f1c40f;
+    color: #000;
+}
+
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex;
+        gap: 30px;
+        margin-right: 120px; /* Bu değer PC'de menüyü sola kaydırır */
+    }
+
+    /* Menü içindeki mobil butonu PC'de kesinlikle gizle */
+    .desktop-login {
+        display: flex !important; /* Görünür yap */
+        min-width: 130px; /* Butonun daralmasını engeller */
+        justify-content: center;
+        margin-left: 20px; /* Menüden biraz uzaklaştır */
+    }
+
+    .mobile-login {
+        display: none !important; /* Mobildeki butonu kesin gizle */
+    }
+}
+
+/* Mobilde dokunma alanını netleştirelim */
+@media (max-width: 768px) {
+    .bot-inline-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+/* Küçük ekranlarda yazının taşmaması için */
+@media (max-width: 600px) {
+    .event-started {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
+}
+
+/* ============================================================
+   MOBILE OPTIMIZATION (Responsive Design)
+   ============================================================ */
+
+/* ============================================================
+   MOBILE OPTIMIZATION (Responsive Design) - GÜNCEL VERSİYON
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    .desktop-only { display: none !important; }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Sayfa akışını kontrol etmek için main'i flex yapıyoruz */
+    main { 
+        display: flex !important; 
+        flex-direction: column !important; 
+    }
+
+    /* 1. Header & Navigasyon */
+    header {
+        height: 70px !important;
+        padding: 0 20px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        position: sticky !important;
+        top: 0;
+        z-index: 1100 !important;
+        background: #000 !important;
+        width: 100%;
+        box-sizing: border-box;
+        /* İstediğin o alt sarı çizgi */
+        border-bottom: 1px solid #f1c40f !important; 
+    }
+
+    section {
+        scroll-margin-top: 70px; 
+    }
+
+    /* Dokununca Büyüyen Buton Efekti */
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 1001; /* Menü panelinin üstünde kalmalı */
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* Basılı tutunca/tıklayınca büyüme */
+    .menu-toggle:active {
+        transform: scale(1.3);
+    }
+
+    .menu-toggle .bar {
+        width: 100%;
+        height: 3px;
+        background-color: #f1c40f;
+        border-radius: 10px;
+    }
+
+    /* X İşareti */
+    .menu-toggle.open .bar:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .menu-toggle.open .bar:nth-child(2) { opacity: 0; transform: translateX(-10px); }
+    .menu-toggle.open .bar:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    .bar {
+        width: 100%;
+        height: 3px;
+        background-color: var(--primary) !important; /* Görünür olması için sarı yaptık */
+        border-radius: 10px;
+        display: block !important;
+    }
+
+    /* Menü Paneli: Kaymayan Perde Sistemi */
+    .nav-container {
+        display: block !important; 
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: row !important; /* Mobilde logoyu ve hamburger menüyü yan yana tutar */
+        justify-content: center !important;
+        background: rgba(10, 10, 10, 0.98);
+        border-bottom: 1px solid #f1c40f;
+        z-index: 1000;
+        /* Animasyon Ayarları */
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Menü Açıldığında */
+    .nav-container.active {
+        max-height: 460px; /* İçeriğe göre yükseklik */
+        max-height: 560px;
+        opacity: 1;
+        display: flex !important;
+        visibility: visible;
+    }
+    
+    .nav-links {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 10px 0 !important;
+    }
+
+
+desktop-login {
+    display: none !important; /* PC'deki butonu gizle */
+}
+
+    .mobile-login {
+        background-color: #f1c40f !important;
+        color: #000000 !important; /* Yazı rengi kesin siyah */
+        font-weight: 900 !important;
+        margin: 15px 20px !important; /* Biraz daha belirgin boşluk */
+        border-radius: 8px !important;
+        border: none !important;
+        text-align: center !important;
+        display: block !important;
+        text-decoration: none !important;
+    }
+
+    .nav-links a.mobile-login {
+        color: #000000 !important;
+    }
+
+    
+    .nav-links a {
+        padding: 5px !important;
+        text-align: center !important;
+        font-size: 1.1rem !important;
+        color: #fff !important;
+        font-weight: 600 !important;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        white-space: nowrap; /* Linklerin taşmasını engeller */
+        /* Linklerin tek tek gelme animasyonu */
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: 0.4s ease;
+    }
+
+    .nav-container.active .nav-links a {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.2s; /* Menü açıldıktan hemen sonra başlar */
+    }
+
+    .nav-links .active {
+        color: #f1c40f !important; /* Sarı renk vurgusu */
+    }
+
+    .nav-links a:active {
+        background: rgba(241, 196, 15, 0.2); /* Dokunmatik geri bildirim */
+        color: #f1c40f !important;
+    }
+
+    .scrolling-text span {
+        margin-right: 250px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px !important;
+    }
+
+    nav a {
+        font-size: 12px !important;
+        margin: 0 4px !important;
+    }
+
+    /* 2. Hero Bölümü - EKRANI KAPLASIN */
+    .hero {
+        order: 1 !important;
+        min-height: 80vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 0 15px !important;
+    }
+
+    .hero h2 { 
+        font-size: 24px !important; 
+        letter-spacing: 4px !important; 
+        color: #f1c40f !important; }
+
+    .hero h1 { 
+        font-size: 46px !important; 
+        font-weight: 900 !important;
+        line-height: 1.0 !important;
+        margin: 10px 0 25px 0 !important;
+    }
+
+    /* Online Sayacı */
+    .online-count {
+        font-size: 18px !important; /* Oyuncu sayısını da biraz büyüttük */
+        margin-bottom: 20px !important;
+        font-weight: 500 !important;
+    }
+
+   
+
+    .play-btn { 
+        padding: 20px 65px !important; 
+        font-size: 24px !important; 
+        border-radius: 12px !important; 
+    }
+
+    /* 3. Haberler Bölümü */
+    .news {
+        order: 2 !important; /* Hero'dan sonra */
+        padding: 40px 5% !important;
+        border-top: 1px solid #f1c40f !important; /* Altına belirgin bir çizgi ekledik */
+    }
+
+    .section-title {
+        margin-top: 20px !important;
+        padding: 20px 0 !important;
+        text-align: center !important;
+        font-size: 1.5rem !important;
+        width: 100% !important;
+    }
+
+    .news-container {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    /* 4. Oyunlar Bölümü */
+    .games {
+        order: 3 !important; /* Haberlerden sonra */
+        padding-bottom: 60px !important;
+        border-top: 1px solid #f1c40f !important; /* Altına belirgin bir çizgi ekledik */
+    }
+
+    .game-cards {
+        grid-template-columns: 1fr !important; /* Mobilde tek sütun daha şık */
+        padding: 0 5% !important;
+        gap: 15px !important;
+    }
+
+    .game-card { 
+        width: 100% !important;
+        height: 120px !important; 
+    }
+
+    /* 5. Gaming Gecesi - EN ALTA TAŞINDI VE ÇİZGİLİ */
+    .gaming-night {
+        order: 4 !important; 
+        margin-top: 20px !important; /* Üstteki bölümle arasını biraz açtık */
+        padding: 30px 5% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: auto !important;
+        background-color: #000 !important;
+        /* Belirgin Alt ve Üst Çizgiler */
+        border-top: 1px solid #f1c40f !important;
+        border-bottom: 1px solid #f1c40f !important;
+    }
+
+    .gaming-content {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important; /* Yazı ve sayaç arasındaki boşluğu minimize ettik */
+    }
+
+    .gaming-info {
+        min-width: unset !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .gaming-info h3 {
+        font-size: 1.8rem !important;
+        margin-bottom: 5px !important;
+        color: #f1c40f !important;
+    }
+
+    .gaming-info p {
+        display: block !important;
+        font-size: 1rem !important; /* Yazıyı daha okunabilir yaptık */
+        color: #fff !important;
+        margin: 0 0 15px 0 !important; /* Sayaçla arasına tatlı bir boşluk */
+        font-weight: 600 !important;
+        letter-spacing: 1px !important;
+    }
+
+    #timer {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .time-box {
+        min-width: 65px !important;
+        padding: 10px 5px !important;
+        background: #111 !important;
+        border: 1px solid rgba(241, 196, 15, 0.6) !important;
+        border-radius: 8px !important;
+    }
+
+    .time-box span { 
+        font-size: 22px !important; 
+        color: #f1c40f !important;
+    }
+
+    .time-box label { 
+        font-size: 9px !important; 
+        color: #888 !important;
+    }
+
+    /* 6. Alt Düğmeler */
+    .fixed-buttons {
+        right: 15px !important;
+        bottom: 15px !important;
+    }
+
+    /* PC için olan dışarıdaki butonu mobilde gizle */
+    .desktop-login {
+        display: none !important;
+    }
+
+    /* Menü içindeki mobil butonu mobilde göster ve şekillendir */
+    .mobile-login {
+        display: block !important;
+        background: var(--primary) !important;
+        color: #000 !important;
+        padding: 12px !important;
+        margin: 15px 20px !important;
+        border-radius: 8px !important;
+        text-align: center !important;
+        font-weight: bold !important;
+        text-decoration: none !important;
+    }
+}
+
+
+
+/* Çok küçük ekranlar (iPhone SE vb.) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+    
+    .time-box {
+        min-width: 50px;
+        padding: 8px;
+    }
+
+    .time-box span {
+        font-size: 20px;
+    }
+}
