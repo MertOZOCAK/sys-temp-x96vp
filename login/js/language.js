@@ -8,7 +8,6 @@ const newsTranslations = {
         minutes: "DAKİKA",
         seconds: "SANİYE",
         email: "E-posta adresini bırak...",
-        submit: "Haber Ver",
         success: "Kaydın başarıyla oluşturuldu. Sunucumuz aktif olduğunda e-posta adresine bir davetiye göndereceğiz."
     },
     en: {
@@ -20,7 +19,6 @@ const newsTranslations = {
         minutes: "MINUTES",
         seconds: "SECONDS",
         email: "Leave your email address...",
-        submit: "Notify Me",
         success: "Your registration was successful. We will send you an invitation once our server is live."
     }
 };

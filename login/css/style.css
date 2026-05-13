@@ -197,29 +197,41 @@ input::placeholder {
     align-items: center; /* İçindeki input ve butonu hizalar */
     width: 100%;
     height: 100%;
+    padding-right: 6px !important;
 }
 
 /* Sağdaki Buton */
 .side-btn {
-    background: var(--accent) !important;
+    background: #f1c40f !important; /* Mertix Sarısı */
     color: #000 !important;
     border: none !important;
-    width: 42px !important;
-    height: 42px !important;
-    border-radius: 50% !important;
+    
+    /* Kesin yuvarlaklık için genişlik ve yükseklik eşit olmalı */
+    width: 52px !important;
+    height: 32px !important;
+    
+    /* Kareliği yok eden ana komut */
+    border-radius: 50% !important; 
+    
     display: flex !important;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    flex-shrink: 0;
+    
+    /* Hafif sola ve içeriye alma */
     margin-left: 10px;
-    padding: 0 !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    padding: 0 !important; /* İç boşluğu sıfırla ki ikon kaymasın */
+}
+
+.side-btn i {
+    font-size: 1rem !important;
+    line-height: 0; /* İkonun tam merkezde kalmasını sağlar */
 }
 
 .side-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px var(--glow);
+    background: #e5ff00;
+    transform: scale(1.1); /* Yuvarlak butonlarda büyüme efekti çok daha iyi durur */
 }
 
 .input-group {

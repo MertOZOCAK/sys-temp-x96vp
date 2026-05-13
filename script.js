@@ -61,3 +61,12 @@ if (menuToggle && navContainer) {
         });
     });
 }
+
+// Sayfa kaydırıldığında mobil menüyü otomatik kapat
+window.addEventListener('scroll', () => {
+    if (navContainer.classList.contains('active')) {
+        navContainer.classList.remove('active');
+        // Eğer hamburger ikonunun animasyonu varsa (örn. "open" class'ı), onu da sıfırla
+        menuToggle.classList.remove('open'); 
+    }
+}, { passive: true });

@@ -62,8 +62,25 @@ header {
     z-index: 1000;
 }
 
+/* Logo Stili */
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .logo img {
-    height: 50px;
+    height: 80px; /* Logonun boyutunu buradan ayarlayabilirsin */
+    width: auto;
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Tüm içeriği yatayda ortalar */
+    align-items: center;
+    padding: 20px 0;
+    position: relative;
 }
 
 nav a {
@@ -79,21 +96,32 @@ nav a.active, nav a:hover {
 }
 
 .nav-container {
-    width: 100%;
+    width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
     display: flex;
-    justify-content: center; /* Yatayda tam ortalar */
-    align-items: center;
-    padding: 15px 20px;
+    flex-direction: column; /* Logoyu üste, menüyü alta alarak tam simetri sağlar */
+    align-items: center;    /* Dikey eksende her şeyi ortalar */
+    justify-content: center;
+    gap: 25px;              /* Logo ile menü arasındaki boşluk */
 }
 
+/* Menü Linkleri */
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px; /* Linkler arası düzenli boşluk */
-    align-items: center;
-    justify-content: center;
+    gap: 40px; /* Linkler arasındaki yatay boşluk */
+    padding: 0;
+    margin: 0;
+    justify-content: center; /* Linkleri kendi içinde ortalar */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: 500;
+    font-size: 16px;
+    white-space: nowrap; /* Yazıların kırılmasını önler */
+    transition: 0.3s;
 }
 
 .desktop-login {
@@ -1175,6 +1203,8 @@ nav a.active, nav a:hover {
         top: 70px;
         left: 0;
         width: 100%;
+        flex-direction: row !important; /* Mobilde logoyu ve hamburger menüyü yan yana tutar */
+        justify-content: center !important;
         background: rgba(10, 10, 10, 0.98);
         border-bottom: 1px solid #f1c40f;
         z-index: 1000;
@@ -1189,6 +1219,7 @@ nav a.active, nav a:hover {
     /* Menü Açıldığında */
     .nav-container.active {
         max-height: 460px; /* İçeriğe göre yükseklik */
+        max-height: 560px;
         opacity: 1;
         display: flex !important;
         visibility: visible;
