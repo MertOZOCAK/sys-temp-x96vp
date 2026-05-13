@@ -45,7 +45,6 @@ const translations = {
         lang_fr: "Fransızca (Beta)",
         footer_links_title: "Hızlı Linkler",
         footer_link_gaming: "Gaming Gecesi",
-        footer_link_punishments: "Cezalandırmalar",
         footer_support_title: "Destek",
         footer_support_requests: "Destek Talepleri",
         footer_copyright: "Copyright @ Mertix® tüm hakları saklıdır. © 2026"
@@ -96,7 +95,6 @@ const translations = {
         lang_fr: "French (Beta)",
         footer_links_title: "Quick Links",
         footer_link_gaming: "Gaming Night",
-        footer_link_punishments: "Punishments",
         footer_support_title: "Support",
         footer_support_requests: "Support Requests",
         footer_copyright: "Copyright @ Mertix® all rights reserved. © 2026"
