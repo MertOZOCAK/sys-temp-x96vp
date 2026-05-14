@@ -6,8 +6,6 @@
     --text-white: #ffffff;
 }
 
-
-
 html {
     scroll-behavior: smooth;
 }
@@ -65,14 +63,14 @@ header {
 
 /* Logo Stili */
 .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo img {
-    height: 80px; /* Logonun boyutunu buradan ayarlayabilirsin */
-    width: auto;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    margin-right: 100px;
+    color: #ffcc00;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 0.3s ease;
 }
 
 .nav {
@@ -123,6 +121,30 @@ nav a.active, nav a:hover {
     font-size: 16px;
     white-space: nowrap; /* Yazıların kırılmasını önler */
     transition: 0.3s;
+}
+
+/* Masaüstünde mobil versiyonu gizle */
+.mobile-only { display: none !important; }
+
+/* GG Butonu Tasarımı */
+.gg-btn {
+    background: #e74c3c !important;
+    color: white !important;
+    padding: 1px 20px;
+    border-radius: 8px;
+    font-weight: 900;
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
+}
+
+.gg-btn:hover {
+    background: #c0392b;
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.7);
+    transform: scale(1.05);
 }
 
 .desktop-login {
@@ -438,7 +460,7 @@ nav a.active, nav a:hover {
     /* height: 100vh;  <-- Bu satırı siliyoruz veya Auto yapıyoruz */
     height: auto; 
     display: block; /* Flex-center yerine normal akışa geçiyoruz */
-    padding: 80px 10% 20px; /* Üstten boşluk, alttan minimum boşluk */
+    padding: 80px 10% 120px; /* Üstten boşluk, alttan minimum boşluk */
     background-color: var(--bg-dark);
     box-sizing: border-box;
     border-bottom: 1px solid #f1c40f;
@@ -704,7 +726,6 @@ nav a.active, nav a:hover {
 
 .social-icons .icon i {
     text-decoration: none !important; /* İkonun kendisine uygulanan çizgiyi siler */
-    border: none !important; /* Varsa kenarlıkları kaldırır */
 }
 
 .social-icons .icon:hover {
@@ -733,7 +754,7 @@ nav a.active, nav a:hover {
 .language-select {
     background: #111;
     color: #fff;
-    border: 1px solid #333;
+    border: 2px solid #333;
     padding: 8px 15px;
     border-radius: 6px;
     width: 100%;
@@ -773,7 +794,7 @@ nav a.active, nav a:hover {
     bottom: 100px;
     width: 320px;
     height: 450px;
-    background: #111;
+    background: rgba(10, 10, 10, 0.98);                         
     border: 2px solid #f1c40f;
     border-radius: 15px;
     display: none; /* JS ile 'flex' yapılacak */
@@ -822,6 +843,7 @@ nav a.active, nav a:hover {
 .chat-header button {
     background: transparent;
     border: none;
+    border-radius: 100%;
     color: #000;
     font-size: 24px;
     cursor: pointer;
@@ -1222,17 +1244,89 @@ nav a.active, nav a:hover {
 
     /* Menü Açıldığında */
     .nav-container.active {
-        max-height: 460px; /* İçeriğe göre yükseklik */
-        max-height: 560px;
+        max-height: 560px; /* İçeriğe göre yükseklik */
         opacity: 1;
         display: flex !important;
         visibility: visible;
     }
     
     .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Yatayda tam ortalar */
+        justify-content: center;
+        width: 100%;
+        gap: 8px !important;
+        text-align: center;
+    }
+
+    .desktop-only { display: none !important; } /* Menü içindeki masaüstü GG'yi gizle */
+    .mobile-only { display: flex !important; } /* Mobil grubu içindeki GG'yi göster */
+    
+    /* Butonları Alt Alta Dizme Alanı */
+    .mobile-action-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 30px;
+        margin-top: 15px !important; /* Linklerden sonraki boşluğu azalttık */
+        margin-bottom: 60px !important; /* SARI ÇİZGİDEN (Alt sınırdan) uzaklaştırdık */
+        gap: 12px; /* GG ve Giriş Yap arası mesafe */
+    }
+
+    .mobile-action-group .gg-btn, 
+    .mobile-action-group .mobile-login {
+        width: 100% !important; /* Genişliği full yap */
+        margin: 0 !important;
+        padding: 12px !important;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .gg-btn.mobile-only {
+        background: #e74c3c !important;
+        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4) !important;
+    }
+
+    .gg-btn.mobile-only, 
+    .mobile-login {
+        width: 100% !important;
+        max-width: 200px; /* Biraz daha derli toplu durması için küçülttük */
+        height: 20px !important;
         display: flex !important;
-        flex-direction: column !important;
-        padding: 10px 0 !important;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px !important;
+        margin: 0 auto !important;
+    }
+
+    .mobile-nav-actions {
+        display: flex;
+        flex-direction: column; /* Üst üste diz */
+        gap: 10px;
+        padding: 20px 10px;
+        width: 100%;
+    }
+
+    .gg-btn.mobile-only {
+        width: 100%;
+        background: #e74c3c !important;
+        box-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
+    }
+
+    /* Giriş Yap butonu stilini garantiye al */
+    .mobile-login {
+        background: var(--primary) !important;
+        color: black !important;
+        box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3) !important;
+        margin-bottom: 10px !important;
+    }
+
+    .gg-btn {
+        padding: 5px 10px;
+        font-size: 14px;
+        margin-right: 5px;
     }
 
 
@@ -1265,7 +1359,7 @@ desktop-login {
 
     
     .nav-links a {
-        padding: 5px !important;
+        padding: 8px 0 !important;
         text-align: center !important;
         font-size: 1.1rem !important;
         color: #fff !important;

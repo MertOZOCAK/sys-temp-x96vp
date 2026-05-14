@@ -4,7 +4,7 @@ const navContainer = document.querySelector('.nav-container');
 const navLinks = document.querySelectorAll('.nav-links a');
 
 function updateTimer() {
-    const targetDate = new Date(2026, 4, 10, 20, 0, 0).getTime(); 
+    const targetDate = new Date(2026, 4, 24, 20, 0, 0).getTime(); 
 
     const timerInterval = setInterval(() => {
         const now = new Date().getTime();
