@@ -7,17 +7,31 @@ function updateTimer() {
         const timerContainer = document.getElementById("timer");
 
         if (diff <= 0) {
-            clearInterval(timerInterval);
-            const currentLang = localStorage.getItem('siteLang') || 'tr';
-            const startText = "ETKİNLİK BAŞLADI!";
-            
-            timerContainer.innerHTML = `<div class="event-started-wrapper" data-key="event_status">${startText}</div>`;
-            timerContainer.style.display = "flex";
-            timerContainer.style.justifyContent = "center";
-            timerContainer.style.alignItems = "center";
-            timerContainer.style.width = "100%";
-            return;
-        }
+    clearInterval(timerInterval);
+    
+    // Dil kontrolü (localStorage'dan siteLang veya selectedLanguage hangisini kullanıyorsan)
+    const currentLang = localStorage.getItem('siteLang') || 'tr';
+    
+    const texts = {
+        'tr': 'ETKİNLİK BAŞLADI!',
+        'en': 'EVENT STARTED!'
+    };
+    
+    const startText = texts[currentLang] || texts['tr'];
+
+    const timerContainer = document.getElementById("timer");
+    
+    // BURASI KRİTİK: CSS'teki .event-active-msg sınıfını kullanıyoruz
+    timerContainer.innerHTML = `<div class="event-active-msg" data-key="event_status">${startText}</div>`;
+    
+    // Hizalama
+    timerContainer.style.display = "flex";
+    timerContainer.style.justifyContent = "center";
+    timerContainer.style.alignItems = "center";
+    timerContainer.style.width = "100%";
+    
+    return;
+}
 
         const d = Math.floor(diff / (1000 * 60 * 60 * 24));
         const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
