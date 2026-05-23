@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> Sayfa Bulunamadı (404) • Mertix Network</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #f1c40f;
+            --primary-glow: rgba(241, 196, 15, 0.4);
+            --bg-dark: #050505;
+            --text-gray: #aaa;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: white;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-logo {
+            position: absolute;
+            top: 40px;
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 8px;
+            color: var(--primary);
+            text-transform: uppercase;
+            text-shadow: 0 0 20px var(--primary-glow);
+            z-index: 20;
+        }
+
+        /* 404 NEON SIKLIĞINI BURADAN AYARLAYABİLİRSİN */
+        /* 'animation: neonFlicker 1.5s infinite;' yazan yerdeki 1.5s'yi düşürürsen hızlanır */
+        .error-code {
+            font-size: clamp(8rem, 25vw, 16rem);
+            font-weight: 900;
+            color: var(--primary);
+            margin: 0;
+            line-height: 1;
+            animation: neonFlicker 1.5s infinite; /* 3s'den 1.5s'ye çekerek sıklaştırdım */
+            cursor: default;
+            user-select: none;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Titreşim anlarını (yüzdeleri) birbirine yaklaştırarak daha hareketli yaptım */
+        @keyframes neonFlicker {
+            0%, 10%, 14%, 20%, 50%, 54%, 100% { 
+                text-shadow: 0 0 20px var(--primary-glow), 0 0 50px var(--primary-glow); 
+                opacity: 1; 
+            }
+            12%, 18%, 52% { 
+                text-shadow: none; 
+                opacity: 0.5; 
+            }
+        }
+
+        .error-message {
+            font-size: clamp(1.2rem, 4vw, 2.2rem);
+            font-weight: 700;
+            margin: 10px 0;
+            color: #fff;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* DÜZELTİLEN KISIM: Typewriter Alanı */
+        .typewriter-container {
+            color: var(--text-gray);
+            min-height: 3em; /* Satır kaymaları için alan bırakır */
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 10;
+            padding: 0 20px;
+            line-height: 1.5;
+        }
+
+        /* İmleç Artık Sadece Karakter Boyutunda */
+        #cursor {
+            display: inline-block;
+            width: 4px;
+            height: 1.1em;
+            background-color: var(--primary);
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: blinkCursor 0.8s infinite;
+        }
+
+        @keyframes blinkCursor {
+            50% { opacity: 0; }
+        }
+
+        .home-btn {
+            position: relative;
+            display: inline-block;
+            padding: 16px 45px;
+            background-color: var(--primary);
+            color: black;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: 0.5rem;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: all 0.3s ease; /* Hover yumuşaklığı için */
+            box-shadow: 0 0 20px var(--primary-glow);
+            z-index: 15;
+        }
+
+        /* HOVER EFEKTİ: Arka plan beyazlar ve parlama rengi değişir */
+        .home-btn:hover {
+            transform: scale(1.05);
+            background-color: #ffffff; /* Beyazlama */
+            color: #000;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6); /* Beyaz parlama */
+        }
+
+        .home-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            transform: skewX(-25deg);
+            animation: buttonShine 2s infinite;
+        }
+
+        @keyframes buttonShine { 0% { left: -100%; } 20% { left: 150%; } 100% { left: 150%; } }
+
+        #snow-container, #block-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+        }
+
+        .snow-pixel { position: absolute; background-color: white; opacity: 0.6; animation: fall linear infinite; }
+        .block {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: floatBlocks linear infinite;
+        }
+
+        @keyframes fall { 0% { transform: translateY(-10vh); } 100% { transform: translateY(110vh); } }
+        @keyframes floatBlocks { 
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; } 
+            10% { opacity: 1; } 100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; } 
+        }
+
+        /* YENİ: Telif Hakkı Yazısı Stili */
+        .footer-copyright {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            font-size: 0.85rem;
+            color: rgba(170, 170, 170, 0.6); /* --text-gray'in daha şeffaf hali */
+            z-index: 20;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-logo">MERTİX</div>
+    <div id="snow-container"></div>
+    <div id="block-container"></div>
+    <div class="error-container">
+        <h1 class="error-code">404</h1>
+        <div class="error-message">BURASI BİRAZ SOĞUK...</div>
+        <div class="typewriter-container">
+            <span id="typewriter"></span><span id="cursor"></span>
+        </div>
+        <a href="../index.html" class="home-btn">ANASAYFA</a>
+    </div>
+
+    <div class="footer-copyright">
+        Copyright Mertix® tüm hakları saklıdır. © 2026
+    </div>
+
+    <script>
+        function initBackground() {
+            const snowContainer = document.getElementById('snow-container');
+            const blockContainer = document.getElementById('block-container');
+            const isMobile = window.innerWidth < 768;
+            const blockCount = isMobile ? 5 : 15;
+            for (let i = 0; i < 60; i++) {
+                const snow = document.createElement('div');
+                snow.className = 'snow-pixel';
+                const size = Math.floor(Math.random() * 3) + 2;
+                snow.style.width = `${size}px`; snow.style.height = `${size}px`;
+                snow.style.left = `${Math.random() * 100}%`;
+                snow.style.animationDuration = `${Math.random() * 3 + 4}s`;
+                snow.style.animationDelay = `-${Math.random() * 5}s`;
+                snowContainer.appendChild(snow);
+            }
+            for (let i = 0; i < blockCount; i++) {
+                const block = document.createElement('div');
+                block.className = 'block';
+                const size = Math.floor(Math.random() * 50) + 30;
+                block.style.width = `${size}px`; block.style.height = `${size}px`;
+                block.style.left = `${Math.random() * 100}%`;
+                block.style.animationDuration = `${Math.random() * 15 + 15}s`;
+                block.style.animationDelay = `-${Math.random() * 20}s`;
+                if(i % 3 === 0) block.style.borderColor = "rgba(241, 196, 15, 0.1)";
+                blockContainer.appendChild(block);
+            }
+        }
+        const typewriterElement = document.getElementById('typewriter');
+        const phrases = ["Görünüşe göre Mertix haritasının dışına çıktın.", "Burada sadece karlı bloklar ve sessizlik var.", "Aradığın sayfa silinmiş veya taşınmış olabilir.", "Donmadan önce güvenli bölgeye dönmelisin!"];
+        let phraseIndex = 0; let charIndex = 0; let isDeleting = false; let typeSpeed = 100;
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--; typeSpeed = 50;
+            } else {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++; typeSpeed = 100;
+            }
+            if (!isDeleting && charIndex === currentPhrase.length) { isDeleting = true; typeSpeed = 2500; }
+            else if (isDeleting && charIndex === 0) { isDeleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; typeSpeed = 500; }
+            setTimeout(type, typeSpeed);
+        }
+        initBackground();
+        type();
+    </script>
+</body>
+</html>
