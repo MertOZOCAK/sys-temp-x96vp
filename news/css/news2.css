@@ -1,0 +1,481 @@
+:root {
+    --primary: #f1c40f;
+    --bg: #050505;
+    --card: #0d0d0d;
+    --accent: #ff0000; /* Mertix Kırmızısı */
+    --text: #ffffff;
+    --text-muted: #888;
+    --border: #1a1a1a;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* 2. Kayan Duyuru Bandı */
+/* 2. Kayan Duyuru Bandı */
+.top-bar {
+    height: 35px; /* vh yerine sabit pixel mobilde daha stabil durur */
+    display: flex;
+    align-items: center;
+    background-color: var(--primary);
+    color: black;
+    overflow: hidden; 
+    white-space: nowrap; 
+    position: relative;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.scrolling-text {
+    display: inline-block;
+    white-space: nowrap;
+    /* Animasyon süresini metin uzunluğuna göre 20s-30s yapabilirsin */
+    animation: scroll-left 60s linear infinite;
+}
+
+.scrolling-text span {
+    margin-right: 600px;
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* %100 yerine %50 yaparak döngüyü kusursuzlaştırıyoruz */
+}
+
+/* Logo Stili */
+.logo {
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+.logo h2 {
+    font-size: 2.5rem; /* İhtiyaca göre büyütebilirsin */
+    letter-spacing: 4px;
+    text-shadow: 0 0 15px rgba(241, 196, 15, 0.3); /* Altın sarısı hafif parlama */
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.mertix-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Diğer CSS kuralları (header, sidebar vb.) öncekiyle aynı kalabilir */
+
+.mertix-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Header */
+.news-header { text-align: center; margin-bottom: 50px; }
+
+.category-tag {
+    background: var(--accent);
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 900;
+    border-radius: 3px;
+    letter-spacing: 1px;
+}
+
+.news-header h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 25px 0;
+    text-transform: uppercase;
+}
+
+.meta-info { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 40px; }
+.meta-info span { margin: 0 15px; }
+
+.banner-container {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+
+.main-image { width: 100%; display: block; }
+
+/* Grid Düzeni */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 60px;
+    margin-top: 60px;
+}
+
+.highlight-text {
+    font-size: 1.25rem;
+    color: #eee;
+    margin-bottom: 30px;
+    font-weight: 600;
+    border-left: 4px solid var(--accent);
+    padding-left: 20px;
+}
+
+.alert-box {
+    margin-top: 40px;
+    background: #0a0a0a;
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* Sidebar */
+.sidebar h3 {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    padding-left: 5px;
+    border-left: 3px solid var(--accent); /* Mertix kırmızısı ince bir çizgi */
+}
+
+.mini-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #0d0d0d;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Yaylanma efekti */
+    overflow: hidden;
+    position: relative;
+}
+
+.mini-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: #121212;
+    border-color: rgba(255, 0, 0, 0.3); /* Hafif kırmızı parlama */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card-thumb {
+    width: 80px;
+    height: 60px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.mini-card:hover .card-thumb {
+    transform: scale(1.1) rotate(2deg); /* Görsel hafif büyür ve döner */
+}
+
+.card-desc h4 {
+    color: #fff;
+    font-size: 0.95rem;
+    margin: 0 0 5px 0;
+    transition: color 0.3s ease;
+}
+
+.mini-card:hover .card-desc h4 {
+    color: var(--accent);
+}
+
+.card-desc p {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.mini-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    transition: 0.5s;
+}
+
+.mini-card:hover::after {
+    left: 100%;
+}
+
+/* Yorumlar Genel */
+.comments-section {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 2px solid var(--border);
+}
+
+.section-title {
+    font-weight: 900;
+    color: #f1c40f;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.comment-card {
+    background: #0a0a0a;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+.comment-card:hover {
+    border-color: #333;
+}
+
+/* Kullanıcı Bilgisi */
+.comment-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.user-avatar, .user-avatar-placeholder {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.user-avatar-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    color: #fff;
+}
+
+.username {
+    display: block;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.comment-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Yorum Metni */
+.comment-text {
+    color: #ddd;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+/* Etkileşim Butonları */
+.comment-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.action-btn {
+    background: transparent;
+    border: 1px solid #222;
+    color: var(--text-muted);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.action-btn i { margin-right: 5px; }
+
+.action-btn.like:hover { border-color: #2ecc71; color: #2ecc71; }
+.action-btn.dislike:hover { border-color: #e74c3c; color: #e74c3c; }
+
+.reply-btn {
+    background: transparent;
+    border: none;
+    color: #3498db;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+/* Yorumların tam genişlikte ve düzgün durması için */
+.comments-section.full-width {
+    margin-top: 60px;
+    width: 100%;
+    border-top: 2px solid var(--border);
+    padding-top: 40px;
+}
+
+/* Mobilde ve masaüstünde kartların genişliğini koru */
+.comment-card {
+    max-width: 100%; /* Artık içeriğe göre değil, sayfaya göre genişler */
+    background: #0a0a0a;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+/* Yorum Yapma Alanı */
+.comment-input-area {
+    margin-top: 40px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.comment-input-area.top-version {
+    margin-bottom: 40px; /* Alttaki yorumlarla arasını açar */
+    background: #0d0d0d;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.input-title {
+    font-weight: 900;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+.login-alert {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px;
+    background: rgba(255, 0, 0, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 0, 0, 0.2); /* Kesikli çizgiden daha kurumsal bir görünüme geçtik */
+}
+
+.login-alert i {
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+.login-alert p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #fff;
+}
+
+.login-alert a {
+    color: var(--accent);
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.login-alert a:hover {
+    border-bottom-color: var(--accent);
+}
+
+/* Yuvarlak Geri Dön Butonu */
+.back-button-circle {
+    position: absolute;
+    left: 40px; /* Görseldeki konuma göre ayarlandı */
+    top: 140px;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #f1c40f; /* Mertix Sarısı */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f1c40f;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.back-button-circle i {
+    font-size: 18px;
+    margin-right: 2px; /* Oku tam ortalamak için küçük bir düzeltme */
+}
+
+.back-button-circle:hover {
+    background: #f1c40f;
+    color: #111;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(241, 196, 15, 0.4);
+}
+
+/* Sabit Geri Dön Butonu */
+.back-button-fixed {
+    position: fixed; /* Sayfa kaysa da sabit kalır */
+    left: 30px;
+    top: 100px; /* Üst barın (top-bar) hemen altına gelecek şekilde ayarlandı */
+    width: 45px;
+    height: 45px;
+    background: rgba(17, 17, 17, 0.8); /* Arka planı biraz daha belirgin yaptık */
+    border: 2px solid #f1c40f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f1c40f;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 999; /* Diğer tüm içeriklerin üstünde durması için */
+    backdrop-filter: blur(5px); /* Arkasını hafif bulanıklaştırarak şıklık katar */
+}
+
+.back-button-fixed i {
+    font-size: 18px;
+    margin-right: 2px;
+}
+
+.back-button-fixed:hover {
+    background: #f1c40f;
+    color: #111;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(241, 196, 15, 0.5);
+}
+
+@media (max-width: 768px) {
+    .back-button-fixed {
+        left: 15px;
+        top: 90px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .scrolling-text span {
+        margin-right: 275px;
+    }
+}
+
+/* Sidebar mobilde haberin altına, masaüstünde sağda kalmaya devam eder */
+@media (max-width: 900px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .content-grid { grid-template-columns: 1fr; }
+}
