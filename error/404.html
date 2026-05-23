@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title> Sayfa Bulunamadı (404) • Mertix Network</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary: #f1c40f;
@@ -16,172 +17,136 @@
         * { box-sizing: border-box; }
 
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-dark);
             color: white;
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            text-align: center;
+            height: 100vh; width: 100vw;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            overflow: hidden; text-align: center;
             position: relative;
         }
 
-        .header-logo {
-            position: absolute;
-            top: 40px;
-            font-size: 2.5rem;
-            font-weight: 900;
-            letter-spacing: 8px;
-            color: var(--primary);
-            text-transform: uppercase;
-            text-shadow: 0 0 20px var(--primary-glow);
-            z-index: 20;
+        /* --- AYARLAR PANELİ SİSTEMİ --- */
+        .settings-wrapper {
+            position: absolute; top: 30px; left: 30px; z-index: 100;
         }
 
-        /* 404 NEON SIKLIĞINI BURADAN AYARLAYABİLİRSİN */
-        /* 'animation: neonFlicker 1.5s infinite;' yazan yerdeki 1.5s'yi düşürürsen hızlanır */
+        .settings-toggle {
+            background: var(--primary); border: none; width: 45px; height: 45px;
+            border-radius: 50%; cursor: pointer; color: #000; font-size: 20px;
+            transition: 0.3s ease; box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .settings-toggle:hover { transform: scale(1.1) rotate(45deg); background: #fff; }
+
+        .settings-modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
+            z-index: 1000; justify-content: center; align-items: center;
+        }
+
+        .settings-modal.active { display: flex; }
+
+        .settings-content {
+            background: #111; padding: 30px; border-radius: 24px;
+            border: 2px solid var(--primary); width: 320px;
+            box-shadow: 0 0 40px var(--primary-glow);
+        }
+
+        .setting-row {
+            display: flex; justify-content: space-between; align-items: center;
+            margin: 20px 0; font-weight: 700; font-size: 1.1rem;
+        }
+
+        .switch { position: relative; width: 50px; height: 26px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider {
+            position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+            background: #333; transition: .4s; border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute; content: ""; height: 18px; width: 18px;
+            left: 4px; bottom: 4px; background: white; transition: .4s; border-radius: 50%;
+        }
+        input:checked + .slider { background: var(--primary); }
+        input:checked + .slider:before { transform: translateX(24px); }
+
+        .close-btn {
+            margin-top: 15px; width: 100%; padding: 12px;
+            background: var(--primary); border: none; border-radius: 10px;
+            font-weight: 900; cursor: pointer; transition: 0.3s;
+        }
+        .close-btn:hover { background: #fff; transform: translateY(-2px); }
+
+        .effect-disabled { display: none !important; }
+
+        /* --- TASARIM ELEMENTLERİ --- */
         .error-code {
-            font-size: clamp(8rem, 25vw, 16rem);
-            font-weight: 900;
-            color: var(--primary);
-            margin: 0;
-            line-height: 1;
-            animation: neonFlicker 1.5s infinite; /* 3s'den 1.5s'ye çekerek sıklaştırdım */
-            cursor: default;
-            user-select: none;
-            position: relative;
-            z-index: 10;
+            font-size: clamp(8rem, 25vw, 16rem); font-weight: 900;
+            color: var(--primary); margin: 0; line-height: 1;
+            animation: neonFlicker 1.5s infinite; z-index: 10;
         }
 
-        /* Titreşim anlarını (yüzdeleri) birbirine yaklaştırarak daha hareketli yaptım */
         @keyframes neonFlicker {
-            0%, 10%, 14%, 20%, 50%, 54%, 100% { 
-                text-shadow: 0 0 20px var(--primary-glow), 0 0 50px var(--primary-glow); 
-                opacity: 1; 
-            }
-            12%, 18%, 52% { 
-                text-shadow: none; 
-                opacity: 0.5; 
-            }
+            0%, 10%, 14%, 20%, 50%, 54%, 100% { text-shadow: 0 0 20px var(--primary-glow), 0 0 50px var(--primary-glow); opacity: 1; }
+            12%, 18%, 52% { text-shadow: none; opacity: 0.5; }
         }
 
-        .error-message {
-            font-size: clamp(1.2rem, 4vw, 2.2rem);
-            font-weight: 700;
-            margin: 10px 0;
-            color: #fff;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* DÜZELTİLEN KISIM: Typewriter Alanı */
-        .typewriter-container {
-            color: var(--text-gray);
-            min-height: 3em; /* Satır kaymaları için alan bırakır */
-            max-width: 600px;
-            margin: 0 auto 40px;
-            font-size: 1.1rem;
-            position: relative;
-            z-index: 10;
-            padding: 0 20px;
-            line-height: 1.5;
-        }
-
-        /* İmleç Artık Sadece Karakter Boyutunda */
-        #cursor {
-            display: inline-block;
-            width: 4px;
-            height: 1.1em;
-            background-color: var(--primary);
-            margin-left: 4px;
-            vertical-align: middle;
-            animation: blinkCursor 0.8s infinite;
-        }
-
-        @keyframes blinkCursor {
-            50% { opacity: 0; }
-        }
+        .error-message { font-size: clamp(1.2rem, 4vw, 2.2rem); font-weight: 700; margin: 10px 0; z-index: 10; }
+        
+        .typewriter-container { color: var(--text-gray); min-height: 3em; margin-bottom: 40px; font-size: 1.1rem; z-index: 10; }
+        #cursor { display: inline-block; width: 4px; height: 1.1em; background: var(--primary); margin-left: 4px; animation: blink 0.8s infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
 
         .home-btn {
-            position: relative;
-            display: inline-block;
-            padding: 16px 45px;
-            background-color: var(--primary);
-            color: black;
-            text-decoration: none;
-            font-weight: 900;
-            border-radius: 0.5rem;
-            text-transform: uppercase;
-            overflow: hidden;
-            transition: all 0.3s ease; /* Hover yumuşaklığı için */
-            box-shadow: 0 0 20px var(--primary-glow);
-            z-index: 15;
+            position: relative; display: inline-block; padding: 16px 45px;
+            background: var(--primary); color: #000; text-decoration: none;
+            font-weight: 900; border-radius: 0.5rem; transition: 0.3s;
+            box-shadow: 0 0 20px var(--primary-glow); z-index: 15;
         }
+        .home-btn:hover { transform: scale(1.05); background: #fff; }
 
-        /* HOVER EFEKTİ: Arka plan beyazlar ve parlama rengi değişir */
-        .home-btn:hover {
-            transform: scale(1.05);
-            background-color: #ffffff; /* Beyazlama */
-            color: #000;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6); /* Beyaz parlama */
-        }
-
-        .home-btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-            transform: skewX(-25deg);
-            animation: buttonShine 2s infinite;
-        }
-
-        @keyframes buttonShine { 0% { left: -100%; } 20% { left: 150%; } 100% { left: 150%; } }
-
-        #snow-container, #block-container {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-        }
-
-        .snow-pixel { position: absolute; background-color: white; opacity: 0.6; animation: fall linear infinite; }
-        .block {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            animation: floatBlocks linear infinite;
-        }
-
+        #snow-container, #block-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+        .snow-pixel { position: absolute; background: white; opacity: 0.6; animation: fall linear infinite; border-radius: 50%; }
+        .block { position: absolute; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); animation: float linear infinite; }
         @keyframes fall { 0% { transform: translateY(-10vh); } 100% { transform: translateY(110vh); } }
-        @keyframes floatBlocks { 
-            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; } 
-            10% { opacity: 1; } 100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; } 
-        }
+        @keyframes float { 0% { transform: translateY(110vh) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; } }
 
-        /* YENİ: Telif Hakkı Yazısı Stili */
-        .footer-copyright {
-            position: absolute;
-            bottom: 20px;
-            width: 100%;
-            font-size: 0.85rem;
-            color: rgba(170, 170, 170, 0.6); /* --text-gray'in daha şeffaf hali */
-            z-index: 20;
-            letter-spacing: 1px;
-        }
+        .footer-copyright { position: absolute; bottom: 20px; width: 100%; font-size: 0.85rem; color: rgba(170,170,170,0.4); z-index: 20; }
     </style>
 </head>
 <body>
-    <div class="header-logo">MERTİX</div>
+
+    <div class="settings-wrapper">
+        <button class="settings-toggle" onclick="toggleSettings()"><i class="fas fa-cog"></i></button>
+    </div>
+
+    <div class="settings-modal" id="settingsModal">
+        <div class="settings-content">
+            <h2 style="color: var(--primary); margin-top: 0;">Sayfa Ayarları</h2>
+            <div class="setting-row">
+                <span>Kar Taneleri</span>
+                <label class="switch">
+                    <input type="checkbox" id="snowToggle" checked onchange="applySettings()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="setting-row">
+                <span>Bloklar</span>
+                <label class="switch">
+                    <input type="checkbox" id="blockToggle" checked onchange="applySettings()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <button class="close-btn" onclick="toggleSettings()">KAYDET</button>
+        </div>
+    </div>
+
     <div id="snow-container"></div>
     <div id="block-container"></div>
+    
     <div class="error-container">
         <h1 class="error-code">404</h1>
         <div class="error-message">BURASI BİRAZ SOĞUK...</div>
@@ -191,41 +156,72 @@
         <a href="../index.html" class="home-btn">ANASAYFA</a>
     </div>
 
-    <div class="footer-copyright">
-        Copyright Mertix® tüm hakları saklıdır. © 2026
-    </div>
+    <div class="footer-copyright">Copyright Mertix® tüm hakları saklıdır. © 2026</div>
 
     <script>
-        function initBackground() {
-            const snowContainer = document.getElementById('snow-container');
-            const blockContainer = document.getElementById('block-container');
-            const isMobile = window.innerWidth < 768;
-            const blockCount = isMobile ? 5 : 15;
-            for (let i = 0; i < 60; i++) {
-                const snow = document.createElement('div');
-                snow.className = 'snow-pixel';
-                const size = Math.floor(Math.random() * 3) + 2;
-                snow.style.width = `${size}px`; snow.style.height = `${size}px`;
-                snow.style.left = `${Math.random() * 100}%`;
-                snow.style.animationDuration = `${Math.random() * 3 + 4}s`;
-                snow.style.animationDelay = `-${Math.random() * 5}s`;
-                snowContainer.appendChild(snow);
-            }
-            for (let i = 0; i < blockCount; i++) {
-                const block = document.createElement('div');
-                block.className = 'block';
-                const size = Math.floor(Math.random() * 50) + 30;
-                block.style.width = `${size}px`; block.style.height = `${size}px`;
-                block.style.left = `${Math.random() * 100}%`;
-                block.style.animationDuration = `${Math.random() * 15 + 15}s`;
-                block.style.animationDelay = `-${Math.random() * 20}s`;
-                if(i % 3 === 0) block.style.borderColor = "rgba(241, 196, 15, 0.1)";
-                blockContainer.appendChild(block);
-            }
+        function toggleSettings() {
+            document.getElementById('settingsModal').classList.toggle('active');
         }
+
+        function applySettings() {
+            const snowActive = document.getElementById('snowToggle').checked;
+            const blocksActive = document.getElementById('blockToggle').checked;
+            const snowCont = document.getElementById('snow-container');
+            const blockCont = document.getElementById('block-container');
+
+            if(!snowActive) snowCont.classList.add('effect-disabled');
+            else snowCont.classList.remove('effect-disabled');
+
+            if(!blocksActive) blockCont.classList.add('effect-disabled');
+            else blockCont.classList.remove('effect-disabled');
+        }
+
+        function initBackground() {
+    const snowContainer = document.getElementById('snow-container');
+    const blockContainer = document.getElementById('block-container');
+    const isMobile = window.innerWidth < 768;
+    
+    // Kar taneleri sayısını da biraz artırabiliriz (60 -> 100)
+    for (let i = 0; i < 100; i++) {
+        const snow = document.createElement('div');
+        snow.className = 'snow-pixel';
+        const size = Math.floor(Math.random() * 3) + 2;
+        snow.style.width = `${size}px`; 
+        snow.style.height = `${size}px`;
+        snow.style.left = `${Math.random() * 100}%`;
+        snow.style.animationDuration = `${Math.random() * 2 + 3}s`; // Biraz daha hızlı düşüş
+        snow.style.animationDelay = `-${Math.random() * 5}s`;
+        snowContainer.appendChild(snow);
+    }
+    
+    // Kutu blok sayısını artırıyoruz (15 -> 40)
+    const blockCount = isMobile ? 15 : 40; 
+    for (let i = 0; i < blockCount; i++) {
+        const block = document.createElement('div');
+        block.className = 'block';
+        // Boyutları biraz daha çeşitlendirelim
+        const size = Math.floor(Math.random() * 60) + 20;
+        block.style.width = `${size}px`; 
+        block.style.height = `${size}px`;
+        block.style.left = `${Math.random() * 100}%`;
+        // Hızı artırmak için süreyi kısalttık (15-30s -> 8-15s)
+        block.style.animationDuration = `${Math.random() * 7 + 15}s`; 
+        block.style.animationDelay = `-${Math.random() * 20}s`;
+        
+        if(i % 3 === 0) block.style.borderColor = "rgba(241, 196, 15, 0.2)"; // Belirginliği azıcık artırdık
+        blockContainer.appendChild(block);
+    }
+}
+        
         const typewriterElement = document.getElementById('typewriter');
-        const phrases = ["Görünüşe göre Mertix haritasının dışına çıktın.", "Burada sadece karlı bloklar ve sessizlik var.", "Aradığın sayfa silinmiş veya taşınmış olabilir.", "Donmadan önce güvenli bölgeye dönmelisin!"];
+        const phrases = [
+            "Görünüşe göre Mertix haritasının dışına çıktın.", 
+            "Burada sadece karlı bloklar ve sessizlik var.", 
+            "Aradığın sayfa silinmiş veya taşınmış olabilir.", 
+            "Donmadan önce güvenli bölgeye dönmelisin!"
+        ];
         let phraseIndex = 0; let charIndex = 0; let isDeleting = false; let typeSpeed = 100;
+
         function type() {
             const currentPhrase = phrases[phraseIndex];
             if (isDeleting) {
@@ -239,8 +235,11 @@
             else if (isDeleting && charIndex === 0) { isDeleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; typeSpeed = 500; }
             setTimeout(type, typeSpeed);
         }
-        initBackground();
-        type();
+
+        window.onload = () => {
+            initBackground();
+            type();
+        };
     </script>
 </body>
 </html>
