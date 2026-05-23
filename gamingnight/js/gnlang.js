@@ -29,7 +29,7 @@ const newsTranslations = {
         sale: "İndirim",
 
         // Footer
-        footer_about_title: "Mertix Network Hakkında",
+        footer_about_title: "Hakkımızda",
         footer_about_content: "Mertix Network, Türkiye'nin en yenilikçi Minecraft sunucularından biridir. Towny, Skyblock ve daha birçok oyun moduyla kesintisiz eğlence sunuyoruz.",
         footer_quick_links: "Hızlı Linkler",
         footer_link_gaming: "Gaming Gecesi",
@@ -67,7 +67,7 @@ const newsTranslations = {
         sale: "Sale",
 
         // Footer
-        footer_about_title: "About Mertix Network",
+        footer_about_title: "About Us",
         footer_about_content: "Mertix Network is one of Turkey's most innovative Minecraft servers, offering seamless fun with Towny, Skyblock, and many more game modes.",
         footer_quick_links: "Quick Links",
         footer_link_gaming: "Gaming Night",
