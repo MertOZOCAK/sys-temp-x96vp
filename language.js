@@ -1,3 +1,5 @@
+/*ANASAYFA*/
+
 const translations = {
     tr: {
         top_bar_1: "MAĞAZADAKİ BUGÜNE ÖZEL %50 İNDİRİMİ KAÇIRMAYIN!",

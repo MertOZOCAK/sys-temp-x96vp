@@ -8,28 +8,29 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-dark); /* Sayfa arka planı siyah */
+    background-color: var(--bg-dark);
     color: var(--text-white);
 }
 
 /* 2. Kayan Duyuru Bandı */
 .top-bar {
-    height: 35px; /* vh yerine sabit pixel mobilde daha stabil durur */
+    height: 2.1875rem; /* 35px */
     display: flex;
     align-items: center;
     background-color: var(--primary);
     color: black;
-    overflow: hidden; 
-    white-space: nowrap; 
+    overflow: hidden;
+    white-space: nowrap;
     position: relative;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.25rem; /* 20px */
 }
 
 .scrolling-text {
@@ -40,7 +41,7 @@ body {
 }
 
 .scrolling-text span {
-    margin-right: 600px;
+    margin-right: 50.125rem; /* 50px */
 }
 
 @keyframes scroll-left {
@@ -50,17 +51,17 @@ body {
 
 /* 3. Navigasyon / Header */
 header {
+    background-color: rgba(10, 10, 10, 0.95);
+    padding: 0.9375rem 5%; /* 15px */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
-    background-color: rgba(10, 10, 10, 0.95);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid #f1c40f;
+    border-bottom: 0.0625rem solid rgba(241, 196, 15, 0.3); /* 1px */
+    backdrop-filter: blur(0.625rem); /* 10px */
 }
-
 /* Logo Stili */
 .logo {
     font-family: 'Poppins', sans-serif;
@@ -108,10 +109,18 @@ nav a.active, nav a:hover {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 40px; /* Linkler arasındaki yatay boşluk */
+    gap: 1.875rem; /* 30px */
     padding: 0;
     margin: 0;
     justify-content: center; /* Linkleri kendi içinde ortalar */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: 500;
+    font-size: 0.9375rem; /* 15px */
+    transition: 0.3s;
 }
 
 .nav-links li a {
@@ -123,6 +132,10 @@ nav a.active, nav a:hover {
     transition: 0.3s;
 }
 
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary);
+}
+
 /* Masaüstünde mobil versiyonu gizle */
 .mobile-only { display: none !important; }
 
@@ -130,15 +143,15 @@ nav a.active, nav a:hover {
 .gg-btn {
     background: #e74c3c !important;
     color: white !important;
-    padding: 1px 20px;
-    border-radius: 8px;
+    padding: 0.2rem 1.00rem; /* 8px 20px */
+    border-radius: 0.5rem; /* 8px */
     font-weight: 900;
     text-decoration: none;
     transition: 0.3s;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
+    box-shadow: 0 0 0.9375rem rgba(231, 76, 60, 0.4);
 }
 
 .gg-btn:hover {
@@ -148,18 +161,18 @@ nav a.active, nav a:hover {
 }
 
 .desktop-login {
-    display: flex !important;
-    white-space: nowrap; /* Yazının tek satırda kalmasını sağlar */
-    width: auto !important; /* Genişliği içeriği kadar yapar */
-    padding: 10px 20px !important;
-    justify-content: center;
-    align-items: center;
+    background-color: var(--primary);
+    color: black;
+    padding: 0.625rem 1.25rem; /* 10px 20px */
+    border-radius: 0.3125rem; /* 5px */
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .login-btn {
     background-color: var(--primary);
     color: black !important;
-    padding: 10px 24px !important;
+    padding: 0.625rem 1.5rem; /* 10px 24px */
     border-radius: 8px;
     font-weight: bold;
     text-decoration: none;
@@ -636,9 +649,12 @@ nav a.active, nav a:hover {
 }
 
 .footer-section h3 {
-    font-size: 18px;
-    margin-bottom: 20px;
-    font-weight: 600;
+    color: #f1c40f; /* Mertix Sarı */
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
 }
 
 /* Hakkımızda Alanı */
@@ -707,6 +723,22 @@ nav a.active, nav a:hover {
 
 .footer-section ul li a:hover {
     color: #ffcc00; /* Senin sarı rengin */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom p {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.footer-bottom strong {
+    color: #f1c40f !important;
 }
 
 /* Sosyal Medya ve Dil */
@@ -1256,8 +1288,9 @@ nav a.active, nav a:hover {
         align-items: center; /* Yatayda tam ortalar */
         justify-content: center;
         width: 100%;
-        gap: 8px !important;
+        gap: 0.75rem;
         text-align: center;
+        padding: 0 1.875rem; /* Kenarlardan biraz boşluk */
     }
 
     .desktop-only { display: none !important; } /* Menü içindeki masaüstü GG'yi gizle */
@@ -1270,8 +1303,8 @@ nav a.active, nav a:hover {
         align-items: center;
         width: 100%;
         padding: 0 30px;
-        margin-top: 15px !important; /* Linklerden sonraki boşluğu azalttık */
-        margin-bottom: 60px !important; /* SARI ÇİZGİDEN (Alt sınırdan) uzaklaştırdık */
+        margin-top: 1rem !important; /* Linklerden sonraki boşluğu azalttık */
+        margin-bottom: 3.75rem !important; /* SARI ÇİZGİDEN (Alt sınırdan) uzaklaştırdık */
         gap: 12px; /* GG ve Giriş Yap arası mesafe */
     }
 
@@ -1292,12 +1325,12 @@ nav a.active, nav a:hover {
     .gg-btn.mobile-only, 
     .mobile-login {
         width: 100% !important;
-        max-width: 200px; /* Biraz daha derli toplu durması için küçülttük */
-        height: 20px !important;
+        max-width: 17.5rem; /* 280px */
+        height: 1.25rem !important; /* 50px */
         display: flex !important;
         align-items: center;
         justify-content: center;
-        border-radius: 10px !important;
+        border-radius: 0.625rem !important; /* 10px */
         margin: 0 auto !important;
     }
 

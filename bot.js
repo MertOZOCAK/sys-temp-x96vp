@@ -267,6 +267,7 @@ function handleBotLogic(userInput) {
     // --- 18. ŞİFRE UNUTMA ---
     else if (text.includes("şifre") || text.includes("giremiyorum") || text.includes("şifremi unuttum")) {
         botResponse = "Şifreni unuttuysan Discord üzerinden yönetim ekibine ulaşarak hesap doğrulama yapabilirsin.";
+        btnDetails = { label: "📝 Şifreni Değiştir", url: "#regaccount" };
     }
     // --- 19. ŞİKAYET / RAPOR ---
     else if (text.includes("şikayet") || text.includes("rapor") || text.includes("report")) {
