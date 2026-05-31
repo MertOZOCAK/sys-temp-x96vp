@@ -3,7 +3,7 @@ const menuToggle = document.getElementById('mobile-menu');
 const navContainer = document.querySelector('.nav-container');
 const navLinks = document.querySelectorAll('.nav-links a');
 
-document.getElementById('mobile-menu').addEventListener('click', function() {
+document.getElementById('mobile-menu').addEventListener('click', function () {
     this.classList.toggle('open');
     // Eğer nav-links'in de açılmasını istiyorsan altına ekleyebilirsin:
     document.querySelector('.nav-links').classList.toggle('active');
@@ -11,7 +11,7 @@ document.getElementById('mobile-menu').addEventListener('click', function() {
 
 
 // Yukarı Çık Butonu
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const scrollTopBtn = document.querySelector('.scroll-top');
     if (window.scrollY > 1) {
         scrollTopBtn.classList.add('show');
@@ -40,6 +40,25 @@ window.addEventListener('scroll', () => {
     if (navContainer.classList.contains('active')) {
         navContainer.classList.remove('active');
         // Eğer hamburger ikonunun animasyonu varsa (örn. "open" class'ı), onu da sıfırla
-        menuToggle.classList.remove('open'); 
+        menuToggle.classList.remove('open');
     }
 }, { passive: true });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    // Elementleri seçiyoruz
+    const desktopLogin = document.getElementById("desktopLoginBtn");
+    const desktopProfile = document.getElementById("desktopProfile");
+    const mobileLogin = document.getElementById("mobileLoginBtn");
+    const mobileProfile = document.getElementById("mobileProfile");
+
+    if (isLoggedIn === "true") {
+        // Giriş yapılmışsa yazıları gizle, yuvarlakları göster
+        if (desktopLogin) desktopLogin.style.display = "none";
+        if (desktopProfile) desktopProfile.style.display = "flex";
+        
+        if (mobileLogin) mobileLogin.style.display = "none";
+        if (mobileProfile) mobileProfile.style.display = "flex";
+    }
+});

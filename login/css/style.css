@@ -2,7 +2,8 @@
   --bg: #050505;
   --text: #ffffff;
   --text-dim: #8a8a8a;
-  --accent: #f1c40f; /* Mertix Sarısı */
+  --accent: #f1c40f;
+  /* Mertix Sarısı */
   --accent-light: #ffea00;
   --glow: rgba(241, 196, 15, 0.3);
 }
@@ -14,7 +15,8 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif; /* Mertix Fontu */
+  font-family: "Poppins", sans-serif;
+  /* Mertix Fontu */
   background-color: var(--bg);
   color: var(--text);
   min-height: 100vh;
@@ -22,6 +24,29 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.admin-login {
+  background-color: var(--accent) !important;
+  color: black !important;
+  padding: 0.625rem 1.5rem;
+  /* 10px 24px */
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto !important;
+  /* Diğer sabit yükseklikleri ezsin */
+  border: none;
+}
+
+.admin-login:hover {
+  transform: scale(1.05);
+  background-color: var(--accent-light);
+  box-shadow: 0 4px 12px var(--glow);
 }
 
 /* Arka plandaki hareketli ışıklar - Mavi yerine Sarı yapıldı */
@@ -65,9 +90,19 @@ body {
 }
 
 @keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
 }
 
 /* İçerik Düzeni */
@@ -89,7 +124,8 @@ body {
   justify-content: center;
   margin: 0 auto 1.5rem;
   font-size: 1.75rem;
-  color: #000; /* İkon içi siyah */
+  color: #000;
+  /* İkon içi siyah */
   box-shadow: 0 8px 24px var(--glow);
 }
 
@@ -150,88 +186,99 @@ body {
 
 /* Ana Form Kutusu */
 .email-form {
-    max-width: 400px;
-    margin: 0 auto;
-    background: rgba(40, 40, 40, 0.7) !important; /* Biraz daha belirgin bir gri */
-    border: 2px solid var(--accent) !important;
-    border-radius: 50px;
-    padding: 4px 4px 4px 20px; /* İç boşlukları dengeledik */
-    display: flex;
-    align-items: center; /* Dikeyde tam ortalar */
-    justify-content: center;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 0 20px rgba(241, 196, 15, 0.15);
-    height: 55px; /* S24 FE ve PC'de sabit yükseklik formu toplar */
+  max-width: 400px;
+  margin: 0 auto;
+  background: rgba(40, 40, 40, 0.7) !important;
+  /* Biraz daha belirgin bir gri */
+  border: 2px solid var(--accent) !important;
+  border-radius: 50px;
+  padding: 4px 4px 4px 20px;
+  /* İç boşlukları dengeledik */
+  display: flex;
+  align-items: center;
+  /* Dikeyde tam ortalar */
+  justify-content: center;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 20px rgba(241, 196, 15, 0.15);
+  height: 55px;
+  /* S24 FE ve PC'de sabit yükseklik formu toplar */
 }
 
 /* Formun üzerine gelindiğinde parlamayı artır */
 .email-form:focus-within {
-    box-shadow: 0 0 25px rgba(241, 196, 15, 0.4);
-    border-color: var(--accent-light) !important;
+  box-shadow: 0 0 25px rgba(241, 196, 15, 0.4);
+  border-color: var(--accent-light) !important;
 }
 
 /* Yazı Yazılan Alan */
 input {
-    background: transparent !important;
-    border: none !important;
-    color: #ffffff !important;
-    font-family: 'Poppins', sans-serif !important; /* Mertix fontu */
-    font-size: 1rem !important;
-    font-weight: 500 !important;
-    width: 100%;
-    outline: none !important;
-    padding: 0 !important; /* Wrapper zaten hizalıyor, ekstra padding bozmasın */
-    margin: 0 !important;
-    display: flex;
-    align-items: center;
+  background: transparent !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-family: 'Poppins', sans-serif !important;
+  /* Mertix fontu */
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  width: 100%;
+  outline: none !important;
+  padding: 0 !important;
+  /* Wrapper zaten hizalıyor, ekstra padding bozmasın */
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
 }
 
 /* Placeholder (İpucu) Yazısı */
 input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-    font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
 }
 
 .input-wrapper {
-    display: flex;
-    align-items: center; /* İçindeki input ve butonu hizalar */
-    width: 100%;
-    height: 100%;
-    padding-right: 6px !important;
+  display: flex;
+  align-items: center;
+  /* İçindeki input ve butonu hizalar */
+  width: 100%;
+  height: 100%;
+  padding-right: 6px !important;
 }
 
 /* Sağdaki Buton */
 .side-btn {
-    background: #f1c40f !important; /* Mertix Sarısı */
-    color: #000 !important;
-    border: none !important;
-    
-    /* Kesin yuvarlaklık için genişlik ve yükseklik eşit olmalı */
-    width: 52px !important;
-    height: 32px !important;
-    
-    /* Kareliği yok eden ana komut */
-    border-radius: 50% !important; 
-    
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    
-    /* Hafif sola ve içeriye alma */
-    margin-left: 10px;
-    transition: all 0.3s ease;
-    padding: 0 !important; /* İç boşluğu sıfırla ki ikon kaymasın */
+  background: #f1c40f !important;
+  /* Mertix Sarısı */
+  color: #000 !important;
+  border: none !important;
+
+  /* Kesin yuvarlaklık için genişlik ve yükseklik eşit olmalı */
+  width: 52px !important;
+  height: 32px !important;
+
+  /* Kareliği yok eden ana komut */
+  border-radius: 50% !important;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  /* Hafif sola ve içeriye alma */
+  margin-left: 10px;
+  transition: all 0.3s ease;
+  padding: 0 !important;
+  /* İç boşluğu sıfırla ki ikon kaymasın */
 }
 
 .side-btn i {
-    font-size: 1rem !important;
-    line-height: 0; /* İkonun tam merkezde kalmasını sağlar */
+  font-size: 1rem !important;
+  line-height: 0;
+  /* İkonun tam merkezde kalmasını sağlar */
 }
 
 .side-btn:hover {
-    background: #e5ff00;
-    transform: scale(1.1); /* Yuvarlak butonlarda büyüme efekti çok daha iyi durur */
+  background: #e5ff00;
+  transform: scale(1.1);
+  /* Yuvarlak butonlarda büyüme efekti çok daha iyi durur */
 }
 
 .input-group {
@@ -242,7 +289,9 @@ input::placeholder {
   flex-grow: 1;
 }
 
-.input-group i { color: var(--text-dim); }
+.input-group i {
+  color: var(--text-dim);
+}
 
 input {
   background: transparent;
@@ -254,77 +303,96 @@ input {
 }
 
 .success-message {
-    display: flex;
-    /* Dikey hizalama (sütun düzeni) */
-    flex-direction: column;
-    align-items: center; /* Yatayda ortalar */
-    justify-content: center; /* Dikeyde ortalar */
-    background: rgba(74, 222, 128, 0.1) !important;
-    border: 1px solid rgba(74, 222, 128, 0.3) !important;
-    padding: 30px 20px !important; /* Dikey padding'i (30px) artırdık, dikeyde yer açıldı */
-    border-radius: 20px !important;
-    margin-top: 20px;
-    text-align: center; /* Metni de kendi içinde ortalar */
+  display: flex;
+  /* Dikey hizalama (sütun düzeni) */
+  flex-direction: column;
+  align-items: center;
+  /* Yatayda ortalar */
+  justify-content: center;
+  /* Dikeyde ortalar */
+  background: rgba(74, 222, 128, 0.1) !important;
+  border: 1px solid rgba(74, 222, 128, 0.3) !important;
+  padding: 30px 20px !important;
+  /* Dikey padding'i (30px) artırdık, dikeyde yer açıldı */
+  border-radius: 20px !important;
+  margin-top: 20px;
+  text-align: center;
+  /* Metni de kendi içinde ortalar */
 }
 
 .success-message span {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 1.09rem;
-    color: #4ade80; /* Daha canlı bir yeşil */
-    line-height: 1.4;
-    /* İkon ile metin arasına boşluk */
-    margin-top: 15px;
-    display: block; /* Span'ı blok yapıp marjini tam hissettiriyoruz */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1.09rem;
+  color: #4ade80;
+  /* Daha canlı bir yeşil */
+  line-height: 1.4;
+  /* İkon ile metin arasına boşluk */
+  margin-top: 15px;
+  display: block;
+  /* Span'ı blok yapıp marjini tam hissettiriyoruz */
 }
 
 /* Başarı İkonu Stili ve Animasyonu */
 .success-message i {
-    font-size: 2.5rem; /* İkon boyutunu dikey düzende biraz daha belirgin yaptık */
-    color: #4ade80; /* Canlı başarı yeşili */
-    /* İkon metnin üzerinde olacağı için, metinle arasındaki boşluğu span'a margin-top vererek çözdük, */
-    /* ikonun kendi marjini dikeyde yer kaplamasın */
-    margin-bottom: 0;
-    margin-top: 0;
-    display: inline-block;
-    filter: drop-shadow(0 0 10px rgba(74, 222, 128, 0.5));
-    
-    /* Animasyonu tetikle */
-    animation: successPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
-               successPulse 2s infinite ease-in-out 0.6s;
+  font-size: 2.5rem;
+  /* İkon boyutunu dikey düzende biraz daha belirgin yaptık */
+  color: #4ade80;
+  /* Canlı başarı yeşili */
+  /* İkon metnin üzerinde olacağı için, metinle arasındaki boşluğu span'a margin-top vererek çözdük, */
+  /* ikonun kendi marjini dikeyde yer kaplamasın */
+  margin-bottom: 0;
+  margin-top: 0;
+  display: inline-block;
+  filter: drop-shadow(0 0 10px rgba(74, 222, 128, 0.5));
+
+  /* Animasyonu tetikle */
+  animation: successPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+    successPulse 2s infinite ease-in-out 0.6s;
 }
 
 /* İlk çıkış animasyonu (Zıplayarak gelme) */
 @keyframes successPop {
-    0% { 
-    transform: scale(0) rotate(-45deg); 
-    opacity: 0; 
+  0% {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
   }
 
-  100% { 
-  transform: scale(1) rotate(0deg);
-  opacity: 1; 
-}
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
 }
 
 /* Sürekli hafif nabız/parlama animasyonu */
 @keyframes successPulse {
-    0% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(74, 222, 128, 0.4)); }
-    50% { transform: scale(1.1); filter: drop-shadow(0 0 20px rgba(74, 222, 128, 0.9)); }
-    100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(74, 222, 128, 0.4)); }
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px rgba(74, 222, 128, 0.4));
+  }
+
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(74, 222, 128, 0.9));
+  }
+
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 5px rgba(74, 222, 128, 0.4));
+  }
 }
 
 /* Başarı mesajı kutusunu da biraz güzelleştirelim */
 .success-message {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgba(74, 222, 128, 0.1) !important;
-    border: 1px solid rgba(74, 222, 128, 0.3) !important;
-    padding: 20px !important;
-    border-radius: 20px !important;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(74, 222, 128, 0.1) !important;
+  border: 1px solid rgba(74, 222, 128, 0.3) !important;
+  padding: 20px !important;
+  border-radius: 20px !important;
+  margin-top: 20px;
 }
 
 button {
@@ -376,14 +444,19 @@ button:hover {
   transform: translateY(-3px);
 }
 
-.hidden { display: none; }
+.hidden {
+  display: none;
+}
 
 /* --- S24 FE ve Mobil Cihazlar İçin Tam Optimizasyon --- */
 @media (max-width: 768px) {
+
   /* Sayfanın Kıpırdamasını Engelle */
-  html, body {
+  html,
+  body {
     height: 100%;
-    overflow: hidden !important; /* Kaydırmayı tamamen kapatır */
+    overflow: hidden !important;
+    /* Kaydırmayı tamamen kapatır */
     position: fixed;
     width: 100%;
   }
@@ -398,7 +471,8 @@ button:hover {
   .container {
     padding: 10px;
     width: 100%;
-    transform: translateY(-20px); /* İçeriği hafif yukarı çekerek dengeledik */
+    transform: translateY(-20px);
+    /* İçeriği hafif yukarı çekerek dengeledik */
   }
 
   /* Başlıkları Küçült (Yer Açmak İçin) */
@@ -415,15 +489,18 @@ button:hover {
   /* Sayaç: Hepsi Tek Sırada */
   .countdown {
     display: flex !important;
-    flex-direction: row !important; /* Yan yana dizilim */
+    flex-direction: row !important;
+    /* Yan yana dizilim */
     justify-content: center !important;
-    gap: 6px !important; /* Kutular arası minimum boşluk */
+    gap: 6px !important;
+    /* Kutular arası minimum boşluk */
     margin-bottom: 2rem;
   }
 
   .time-block {
     flex: 1;
-    min-width: 65px !important; /* S24 FE genişliğine tam sığar */
+    min-width: 65px !important;
+    /* S24 FE genişliğine tam sığar */
     max-width: 80px;
     padding: 10px 0 !important;
     background: rgba(255, 255, 255, 0.05) !important;
@@ -431,7 +508,8 @@ button:hover {
   }
 
   .time-value {
-    font-size: 1.4rem !important; /* Sayıları sığacak boyuta getirdik */
+    font-size: 1.4rem !important;
+    /* Sayıları sığacak boyuta getirdik */
   }
 
   .time-label {
@@ -440,7 +518,8 @@ button:hover {
   }
 
   .separator {
-    display: none !important; /* Alan kazanmak için ":" işaretlerini kaldırdık */
+    display: none !important;
+    /* Alan kazanmak için ":" işaretlerini kaldırdık */
   }
 
   /* Form: Kompakt Yapı */
@@ -449,13 +528,15 @@ button:hover {
     background: transparent !important;
     border: none !important;
     gap: 8px;
-    width: 95%; /* S24 FE ekranına tam yayılması için */
-    height: 55px; /* Sabit yükseklik daha derli toplu durur */
+    width: 95%;
+    /* S24 FE ekranına tam yayılması için */
+    height: 55px;
+    /* Sabit yükseklik daha derli toplu durur */
   }
 
   input {
-        font-size: 0.9rem !important;
-    }
+    font-size: 0.9rem !important;
+  }
 
   .input-group {
     background: rgba(255, 255, 255, 0.07) !important;
@@ -471,7 +552,8 @@ button:hover {
 
   /* Arka plan ışıklarını sabit tut */
   .blob {
-    animation: none !important; /* Hareketin ekranı titretmesini engeller */
+    animation: none !important;
+    /* Hareketin ekranı titretmesini engeller */
     opacity: 0.2;
   }
 }

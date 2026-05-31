@@ -21,7 +21,8 @@ body {
 
 /* 2. Kayan Duyuru Bandı */
 .top-bar {
-    height: 2.1875rem; /* 35px */
+    height: 2.1875rem;
+    /* 35px */
     display: flex;
     align-items: center;
     background-color: var(--primary);
@@ -30,7 +31,8 @@ body {
     white-space: nowrap;
     position: relative;
     font-weight: bold;
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.25rem;
+    /* 20px */
 }
 
 .scrolling-text {
@@ -41,27 +43,39 @@ body {
 }
 
 .scrolling-text span {
-    margin-right: 50.125rem; /* 50px */
+    margin-right: 50.125rem;
+    /* 50px */
 }
 
 @keyframes scroll-left {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* %100 yerine %50 yaparak döngüyü kusursuzlaştırıyoruz */
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* %100 yerine %50 yaparak döngüyü kusursuzlaştırıyoruz */
 }
 
 /* 3. Navigasyon / Header */
 header {
     background-color: rgba(10, 10, 10, 0.95);
-    padding: 0.9375rem 5%; /* 15px */
+    padding: 0.9375rem 5%;
+    /* 15px */
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 0.0625rem solid rgba(241, 196, 15, 0.3); /* 1px */
-    backdrop-filter: blur(0.625rem); /* 10px */
+    border-bottom: 0.0625rem solid rgba(241, 196, 15, 0.3);
+    /* 1px */
+    backdrop-filter: blur(0.625rem);
+    /* 10px */
 }
+
 /* Logo Stili */
 .logo {
     font-family: 'Poppins', sans-serif;
@@ -77,7 +91,8 @@ header {
 .nav {
     width: 100%;
     display: flex;
-    justify-content: center; /* Tüm içeriği yatayda ortalar */
+    justify-content: center;
+    /* Tüm içeriği yatayda ortalar */
     align-items: center;
     padding: 20px 0;
     position: relative;
@@ -90,7 +105,8 @@ nav a {
     font-weight: 600;
 }
 
-nav a.active, nav a:hover {
+nav a.active,
+nav a:hover {
     color: var(--primary);
     transform: scale(1.1);
 }
@@ -99,27 +115,33 @@ nav a.active, nav a:hover {
     width: 90%;
     max-width: 1200px;
     display: flex;
-    flex-direction: column; /* Logoyu üste, menüyü alta alarak tam simetri sağlar */
-    align-items: center;    /* Dikey eksende her şeyi ortalar */
+    flex-direction: column;
+    /* Logoyu üste, menüyü alta alarak tam simetri sağlar */
+    align-items: center;
+    /* Dikey eksende her şeyi ortalar */
     justify-content: center;
-    gap: 25px;              /* Logo ile menü arasındaki boşluk */
+    gap: 25px;
+    /* Logo ile menü arasındaki boşluk */
 }
 
 /* Menü Linkleri */
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 1.875rem; /* 30px */
+    gap: 1.875rem;
+    /* 30px */
     padding: 0;
     margin: 0;
-    justify-content: center; /* Linkleri kendi içinde ortalar */
+    justify-content: center;
+    /* Linkleri kendi içinde ortalar */
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text-white);
     font-weight: 500;
-    font-size: 0.9375rem; /* 15px */
+    font-size: 0.9375rem;
+    /* 15px */
     transition: 0.3s;
 }
 
@@ -128,23 +150,29 @@ nav a.active, nav a:hover {
     color: var(--text-white);
     font-weight: 500;
     font-size: 16px;
-    white-space: nowrap; /* Yazıların kırılmasını önler */
+    white-space: nowrap;
+    /* Yazıların kırılmasını önler */
     transition: 0.3s;
 }
 
-.nav-links a:hover, .nav-links a.active {
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--primary);
 }
 
 /* Masaüstünde mobil versiyonu gizle */
-.mobile-only { display: none !important; }
+.mobile-only {
+    display: none !important;
+}
 
 /* GG Butonu Tasarımı */
 .gg-btn {
     background: #e74c3c !important;
     color: white !important;
-    padding: 0.2rem 1.00rem; /* 8px 20px */
-    border-radius: 0.5rem; /* 8px */
+    padding: 0.2rem 1.00rem;
+    /* 8px 20px */
+    border-radius: 0.5rem;
+    /* 8px */
     font-weight: 900;
     text-decoration: none;
     transition: 0.3s;
@@ -163,8 +191,10 @@ nav a.active, nav a:hover {
 .desktop-login {
     background-color: var(--primary);
     color: black;
-    padding: 0.625rem 1.25rem; /* 10px 20px */
-    border-radius: 0.3125rem; /* 5px */
+    padding: 0.625rem 1.25rem;
+    /* 10px 20px */
+    border-radius: 0.3125rem;
+    /* 5px */
     font-weight: bold;
     text-decoration: none;
 }
@@ -172,7 +202,8 @@ nav a.active, nav a:hover {
 .login-btn {
     background-color: var(--primary);
     color: black !important;
-    padding: 0.625rem 1.5rem; /* 10px 24px */
+    padding: 0.625rem 1.5rem;
+    /* 10px 24px */
     border-radius: 8px;
     font-weight: bold;
     text-decoration: none;
@@ -180,7 +211,8 @@ nav a.active, nav a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: auto !important; /* Diğer sabit yükseklikleri ezsin */
+    height: auto !important;
+    /* Diğer sabit yükseklikleri ezsin */
     border: none;
 }
 
@@ -191,13 +223,14 @@ nav a.active, nav a:hover {
 /* 4. Hero Bölümü (Ana Kapak) */
 .hero {
     text-align: center;
-    height: 65vh; /* Ekran yüksekliğinin %65'i */
+    height: 65vh;
+    /* Ekran yüksekliğinin %65'i */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0 20px;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x600');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x600');
     background-size: cover;
     background-position: center;
     border-bottom: 1px solid #f1c40f;
@@ -219,8 +252,10 @@ nav a.active, nav a:hover {
 .online-count {
     display: flex;
     align-items: center;
-    justify-content: center; /* Eğer hero ortalıysa */
-    gap: 10px; /* Nokta ve yazı arasındaki boşluk */
+    justify-content: center;
+    /* Eğer hero ortalıysa */
+    gap: 10px;
+    /* Nokta ve yazı arasındaki boşluk */
     font-size: 1.1rem;
     color: #2ecc71;
     margin: 15px 0;
@@ -230,11 +265,15 @@ nav a.active, nav a:hover {
 .status-dot {
     height: 12px;
     width: 12px;
-    background-color: #2ecc71; /* Canlı Yeşil */
-    border-radius: 50%; /* Tam yuvarlak yap */
+    background-color: #2ecc71;
+    /* Canlı Yeşil */
+    border-radius: 50%;
+    /* Tam yuvarlak yap */
     display: inline-block;
-    position: relative; /* Efektin konumlanması için gerekli */
-    box-shadow: 0 0 10px rgba(46, 204, 113, 0.7); /* Temel parlama */
+    position: relative;
+    /* Efektin konumlanması için gerekli */
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.7);
+    /* Temel parlama */
 }
 
 /* 3. Noktanın Arkasındaki Dalgalanma Efekti (Pseudo-element) */
@@ -247,7 +286,8 @@ nav a.active, nav a:hover {
     height: 100%;
     background-color: #2ecc71;
     border-radius: 50%;
-    transform: translate(-50%, -50%); /* Tam merkezlemek için */
+    transform: translate(-50%, -50%);
+    /* Tam merkezlemek için */
     /* Animasyonu Buraya Bağla */
     animation: statusPulse 3s ease-out infinite;
 }
@@ -258,9 +298,12 @@ nav a.active, nav a:hover {
         transform: translate(-50%, -50%) scale(1);
         opacity: 0.8;
     }
+
     100% {
-        transform: translate(-50%, -50%) scale(2.5); /* Daha geniş bir yayılım */
-        opacity: 0; /* Geri sarmak yerine tamamen yok olur */
+        transform: translate(-50%, -50%) scale(2.5);
+        /* Daha geniş bir yayılım */
+        opacity: 0;
+        /* Geri sarmak yerine tamamen yok olur */
     }
 }
 
@@ -283,7 +326,8 @@ nav a.active, nav a:hover {
 
 /* 5. Gaming Gecesi ve Geri Sayım */
 .gaming-night {
-    height: 25vh; /* Ekran yüksekliğinin %25'i */
+    height: 25vh;
+    /* Ekran yüksekliğinin %25'i */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -299,22 +343,27 @@ nav a.active, nav a:hover {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    flex-wrap: wrap; /* Mobilde alt alta inmesini sağlar */
+    flex-wrap: wrap;
+    /* Mobilde alt alta inmesini sağlar */
     align-items: center;
-    justify-content: space-between; /* İki uca yaslar */
+    justify-content: space-between;
+    /* İki uca yaslar */
     gap: 30px;
 }
 
 .gaming-info {
-    flex: 1; /* Mevcut alanın bir kısmını kaplar */
-    min-width: 350px; /* Çok daralmasını engeller */
+    flex: 1;
+    /* Mevcut alanın bir kısmını kaplar */
+    min-width: 350px;
+    /* Çok daralmasını engeller */
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 #timer {
-    flex: 2; /* Geri sayım veya mesaj alanı daha geniş olabilir */
+    flex: 2;
+    /* Geri sayım veya mesaj alanı daha geniş olabilir */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -322,7 +371,8 @@ nav a.active, nav a:hover {
 }
 
 .gaming-info h3 {
-    font-size: 2.5rem; /* Boyutu ciddi oranda artırdık */
+    font-size: 2.5rem;
+    /* Boyutu ciddi oranda artırdık */
     font-weight: 900;
     color: #f1c40f;
     margin: 0;
@@ -333,7 +383,8 @@ nav a.active, nav a:hover {
 }
 
 .gaming-info p {
-    font-size: 1.2rem; /* Alt metni de biraz büyüttük */
+    font-size: 1.2rem;
+    /* Alt metni de biraz büyüttük */
     color: #ccc;
     margin-top: 10px;
     font-weight: 400;
@@ -374,8 +425,9 @@ nav a.active, nav a:hover {
 .section-title {
     text-align: left;
     /* Üst boşluğu 100px'den 30px'e düşürdük */
-    padding: 30px 10% 20px; 
-    margin-top: 0; /* Ekstra margin'i sıfırladık */
+    padding: 30px 10% 20px;
+    margin-top: 0;
+    /* Ekstra margin'i sıfırladık */
     font-size: 24px;
     letter-spacing: 2px;
     clear: both;
@@ -385,7 +437,7 @@ nav a.active, nav a:hover {
 .section-title {
     margin-bottom: 40px;
     /* Üst boşluğu (padding-top) 30px'den 120px'e çıkardım, bu başlığı aşağı iter */
-    padding: 120px 10% 20px; 
+    padding: 120px 10% 20px;
     margin-top: 0;
     font-size: 28px;
     letter-spacing: 2px;
@@ -402,8 +454,9 @@ nav a.active, nav a:hover {
     max-width: 900px;
     margin: 0 auto;
     /* Kartların başlığa çok yapışmaması için margin-top'ı biraz artırdım */
-    margin-top: 40px; 
-    padding: 20px 0 100px; /* Sayfanın en altıyla arasına ferah bir boşluk bıraktım */
+    margin-top: 40px;
+    padding: 20px 0 100px;
+    /* Sayfanın en altıyla arasına ferah bir boşluk bıraktım */
 }
 
 .game-card {
@@ -436,7 +489,10 @@ nav a.active, nav a:hover {
 .game-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.5);
     transition: background 0.4s ease;
     z-index: 1;
@@ -448,7 +504,7 @@ nav a.active, nav a:hover {
     color: white;
     font-weight: bold;
     font-size: 24px;
-    text-shadow: 2px 2px 15px rgba(0,0,0,0.9);
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.9);
     pointer-events: none;
 }
 
@@ -471,9 +527,11 @@ nav a.active, nav a:hover {
 /* --- En Son Haberler Bölümü --- */
 .news {
     /* height: 100vh;  <-- Bu satırı siliyoruz veya Auto yapıyoruz */
-    height: auto; 
-    display: block; /* Flex-center yerine normal akışa geçiyoruz */
-    padding: 80px 10% 120px; /* Üstten boşluk, alttan minimum boşluk */
+    height: auto;
+    display: block;
+    /* Flex-center yerine normal akışa geçiyoruz */
+    padding: 80px 10% 120px;
+    /* Üstten boşluk, alttan minimum boşluk */
     background-color: var(--bg-dark);
     box-sizing: border-box;
     border-bottom: 1px solid #f1c40f;
@@ -486,12 +544,14 @@ nav a.active, nav a:hover {
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 900;
-    text-align: center; /* Başlığı ortalamak istersen */
+    text-align: center;
+    /* Başlığı ortalamak istersen */
 }
 
 .news-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2x2 düzeni */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2x2 düzeni */
     gap: 25px;
     width: 100%;
     max-width: 1200px;
@@ -505,7 +565,8 @@ nav a.active, nav a:hover {
     transition: all 0.3s ease;
     text-decoration: none;
     border: 1px solid #1a1a1a;
-    display: block; /* Kartın tamamını tıklanabilir yapar */
+    display: block;
+    /* Kartın tamamını tıklanabilir yapar */
 }
 
 .news-card:hover {
@@ -529,7 +590,7 @@ nav a.active, nav a:hover {
     font-size: 32px;
     font-weight: 900;
     color: white;
-    text-shadow: 0 0 15px rgba(0,0,0,0.9);
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
     z-index: 2;
 }
 
@@ -537,8 +598,11 @@ nav a.active, nav a:hover {
 .news-image::after {
     content: '';
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.3);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
 
@@ -553,7 +617,7 @@ nav a.active, nav a:hover {
     border-radius: 6px;
     font-size: 10px;
     font-weight: 700;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 3;
     text-transform: uppercase;
 }
@@ -565,7 +629,8 @@ nav a.active, nav a:hover {
 .news-content h4 {
     font-size: 17px;
     margin: 0 0 10px 0;
-    color: var(--primary); /* Sarı başlık vurgusu */
+    color: var(--primary);
+    /* Sarı başlık vurgusu */
     line-height: 1.3;
 }
 
@@ -586,19 +651,21 @@ nav a.active, nav a:hover {
     display: block;
     width: 100%;
     text-align: center;
-    font-size: clamp(1.8rem, 6vw, 3.5rem); /* Mobilde sığar, masaüstünde büyük durur */
+    font-size: clamp(1.8rem, 6vw, 3.5rem);
+    /* Mobilde sığar, masaüstünde büyük durur */
     font-weight: 900;
     color: #f1c40f;
     text-transform: uppercase;
     letter-spacing: 3px;
-    
+
     /* Parlama ve Hareket Animasyonu */
     animation: pulse-glow 2s infinite ease-in-out;
-    
+
     /* İlk parlama efekti */
     text-shadow: 0 0 15px rgba(241, 196, 15, 0.7);
     margin-top: 20px;
-    will-change: transform, text-shadow; /* Performans için */
+    will-change: transform, text-shadow;
+    /* Performans için */
 }
 
 /* Senin İstediğin Orijinal Animasyon */
@@ -607,10 +674,13 @@ nav a.active, nav a:hover {
         transform: scale(1);
         text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
     }
+
     50% {
-        transform: scale(1.08); /* Çok hafif büyüme */
+        transform: scale(1.08);
+        /* Çok hafif büyüme */
         text-shadow: 0 0 30px rgba(241, 196, 15, 1), 0 0 50px rgba(241, 196, 15, 0.4);
     }
+
     100% {
         transform: scale(1);
         text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
@@ -636,7 +706,8 @@ nav a.active, nav a:hover {
 }
 
 .footer-section h3 {
-    color: #f1c40f; /* Mertix Sarı */
+    color: #f1c40f;
+    /* Mertix Sarı */
     font-size: 1.1rem;
     margin-bottom: 25px;
     text-transform: uppercase;
@@ -663,10 +734,13 @@ nav a.active, nav a:hover {
 }
 
 .footer-logo-text {
-    font-family: 'Poppins', sans-serif; /* Veya projende kullandığın ana font */
-    font-weight: 900; /* Ekrandaki gibi çok kalın */
+    font-family: 'Poppins', sans-serif;
+    /* Veya projende kullandığın ana font */
+    font-weight: 900;
+    /* Ekrandaki gibi çok kalın */
     font-size: 28px;
-    color: #ffcc00; /* Logodaki sarı tonu */
+    color: #ffcc00;
+    /* Logodaki sarı tonu */
     letter-spacing: 1px;
     margin-top: 15px;
     text-transform: uppercase;
@@ -676,11 +750,13 @@ nav a.active, nav a:hover {
 }
 
 .footer-logo-text:hover {
-    transform: scale(1.05); /* Üstüne gelince çok hafif büyüsün */
+    transform: scale(1.05);
+    /* Üstüne gelince çok hafif büyüsün */
 }
 
 .footer-logo-text:hover {
-    transform: scale(1.05); /* Üstüne gelince çok hafif büyüsün */
+    transform: scale(1.05);
+    /* Üstüne gelince çok hafif büyüsün */
 }
 
 /* Mobilde yazıyı biraz küçültelim */
@@ -709,7 +785,8 @@ nav a.active, nav a:hover {
 }
 
 .footer-section ul li a:hover {
-    color: #ffcc00; /* Senin sarı rengin */
+    color: #ffcc00;
+    /* Senin sarı rengin */
 }
 
 .footer-bottom {
@@ -737,18 +814,22 @@ nav a.active, nav a:hover {
 
 /* Sosyal medya ikonlarındaki alt çizgileri kaldırır */
 .social-icons .icon {
-    text-decoration: none !important; /* Linkin alt çizgisini siler */
-    display: inline-flex; /* İkonun kutu içinde tam ortalanmasını sağlar */
+    text-decoration: none !important;
+    /* Linkin alt çizgisini siler */
+    display: inline-flex;
+    /* İkonun kutu içinde tam ortalanmasını sağlar */
     justify-content: center;
     align-items: center;
 }
 
 .social-icons .icon i {
-    text-decoration: none !important; /* İkonun kendisine uygulanan çizgiyi siler */
+    text-decoration: none !important;
+    /* İkonun kendisine uygulanan çizgiyi siler */
 }
 
 .social-icons .icon:hover {
-    transform: translateY(-3px); /* Hafifçe yukarı zıplatır */
+    transform: translateY(-3px);
+    /* Hafifçe yukarı zıplatır */
     transition: transform 0.3s ease;
     opacity: 0.8;
 }
@@ -793,7 +874,8 @@ nav a.active, nav a:hover {
 /* MOBİL UYUMLULUK */
 @media (max-width: 768px) {
     .footer-container {
-        grid-template-columns: 1fr; /* Mobilde her şey alt alta */
+        grid-template-columns: 1fr;
+        /* Mobilde her şey alt alta */
         text-align: center;
         gap: 30px;
     }
@@ -813,19 +895,23 @@ nav a.active, nav a:hover {
     bottom: 100px;
     width: 320px;
     height: 450px;
-    background: rgba(10, 10, 10, 0.98);                         
+    background: rgba(10, 10, 10, 0.98);
     border: 2px solid #f1c40f;
     border-radius: 15px;
-    display: none; /* JS ile 'flex' yapılacak */
+    display: none;
+    /* JS ile 'flex' yapılacak */
     flex-direction: column;
     z-index: 10000;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     overflow: hidden;
 
     /* Animasyon Hazırlığı */
-    background: rgba(17, 17, 17, 0.85) !important; /* Arka planı biraz şeffaf yapmalısın */
-    backdrop-filter: blur(8px); /* Bulanıklık şiddeti */
-    -webkit-backdrop-filter: blur(8px); /* Safari desteği için */
+    background: rgba(17, 17, 17, 0.85) !important;
+    /* Arka planı biraz şeffaf yapmalısın */
+    backdrop-filter: blur(8px);
+    /* Bulanıklık şiddeti */
+    -webkit-backdrop-filter: blur(8px);
+    /* Safari desteği için */
     transform-origin: bottom right;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 0;
@@ -834,7 +920,8 @@ nav a.active, nav a:hover {
 
 /* Pencere Görünür Olduğunda */
 .chat-window.active {
-    display: flex; /* JS ile eklenecek */
+    display: flex;
+    /* JS ile eklenecek */
     opacity: 1;
     transform: scale(1) translateY(0);
 }
@@ -923,12 +1010,28 @@ nav a.active, nav a:hover {
     font-size: 14px;
 }
 
-.bot-msg { background: #222; color: #fff; align-self: flex-start; }
-.user-msg { background: #f1c40f; color: #000; align-self: flex-end; }
+.bot-msg {
+    background: #222;
+    color: #fff;
+    align-self: flex-start;
+}
 
-.chat-footer { padding: 10px; border-top: 1px solid #222; }
+.user-msg {
+    background: #f1c40f;
+    color: #000;
+    align-self: flex-end;
+}
 
-.input-area { display: flex; gap: 5px; }
+.chat-footer {
+    padding: 10px;
+    border-top: 1px solid #222;
+}
+
+.input-area {
+    display: flex;
+    gap: 5px;
+}
+
 .input-area input {
     flex: 1;
     background: #222;
@@ -957,12 +1060,25 @@ nav a.active, nav a:hover {
     animation: bounce 1.4s infinite ease-in-out both;
 }
 
-.dot:nth-child(1) { animation-delay: -0.32s; }
-.dot:nth-child(2) { animation-delay: -0.16s; }
+.dot:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
 
 @keyframes bounce {
-    0%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-8px); }
+
+    0%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-8px);
+    }
 }
 
 /* Mesaj Belirme Animasyonu */
@@ -971,8 +1087,15 @@ nav a.active, nav a:hover {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Sabit Düğmeler Konteynırı */
@@ -981,9 +1104,12 @@ nav a.active, nav a:hover {
     right: 30px;
     bottom: 30px;
     display: flex;
-    flex-direction: row; /* Yan yana diz */
-    align-items: center; /* Dikeyde ortala */
-    gap: 15px; /* Aralarındaki boşluk */
+    flex-direction: row;
+    /* Yan yana diz */
+    align-items: center;
+    /* Dikeyde ortala */
+    gap: 15px;
+    /* Aralarındaki boşluk */
     z-index: 9999;
 }
 
@@ -1001,11 +1127,12 @@ nav a.active, nav a:hover {
     justify-content: center;
     transition: all 0.3s ease;
     margin-bottom: 5px;
-    
+
     /* Gizleme özellikleri */
     opacity: 0;
     pointer-events: none;
-    transform: translateY(10px); /* Hafif aşağıda başlasın */
+    transform: translateY(10px);
+    /* Hafif aşağıda başlasın */
 }
 
 .scroll-top.show {
@@ -1020,6 +1147,7 @@ nav a.active, nav a:hover {
     border-color: #f1c40f;
     transform: scale(1.1);
 }
+
 /* Sohbet Botu Düğmesi (Yuvarlak) */
 .chat-bot-btn {
     width: 60px;
@@ -1032,7 +1160,7 @@ nav a.active, nav a:hover {
     justify-content: center;
     font-size: 24px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -1047,10 +1175,12 @@ nav a.active, nav a:hover {
     width: 85%;
     margin: 10px auto;
     padding: 12px;
-    background: #f1c40f; /* Mertix Sarısı */
+    background: #f1c40f;
+    /* Mertix Sarısı */
     color: #000;
     border: none;
-    border-radius: 8px; /* Dikdörtgen hatlar için az kavis */
+    border-radius: 8px;
+    /* Dikdörtgen hatlar için az kavis */
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
@@ -1074,14 +1204,16 @@ nav a.active, nav a:hover {
 .message.bot-msg.has-button {
     display: flex;
     flex-direction: column;
-    padding-bottom: 8px; /* Buton için alt boşluk */
+    padding-bottom: 8px;
+    /* Buton için alt boşluk */
 }
 
 /* Mesajın içine gömülü buton stili */
 .bot-inline-btn {
     margin-top: 10px;
     padding: 10px;
-    background: #f1c40f; /* Mertix Sarısı */
+    background: #f1c40f;
+    /* Mertix Sarısı */
     color: #000;
     border: none;
     border-radius: 6px;
@@ -1089,7 +1221,8 @@ nav a.active, nav a:hover {
     font-size: 13px;
     cursor: pointer;
     transition: background 0.3s ease;
-    width: 100%; /* Balonun içini tam kaplasın */
+    width: 100%;
+    /* Balonun içini tam kaplasın */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1129,19 +1262,24 @@ nav a.active, nav a:hover {
     .nav-links {
         display: flex;
         gap: 30px;
-        margin-right: 120px; /* Bu değer PC'de menüyü sola kaydırır */
+        margin-right: 120px;
+        /* Bu değer PC'de menüyü sola kaydırır */
     }
 
     /* Menü içindeki mobil butonu PC'de kesinlikle gizle */
     .desktop-login {
-        display: flex !important; /* Görünür yap */
-        min-width: 130px; /* Butonun daralmasını engeller */
+        display: flex !important;
+        /* Görünür yap */
+        min-width: 130px;
+        /* Butonun daralmasını engeller */
         justify-content: center;
-        margin-left: 20px; /* Menüden biraz uzaklaştır */
+        margin-left: 20px;
+        /* Menüden biraz uzaklaştır */
     }
 
     .mobile-login {
-        display: none !important; /* Mobildeki butonu kesin gizle */
+        display: none !important;
+        /* Mobildeki butonu kesin gizle */
     }
 }
 
@@ -1171,16 +1309,18 @@ nav a.active, nav a:hover {
 
 @media (max-width: 768px) {
 
-    .desktop-only { display: none !important; }
+    .desktop-only {
+        display: none !important;
+    }
 
     html {
         scroll-behavior: smooth;
     }
 
     /* Sayfa akışını kontrol etmek için main'i flex yapıyoruz */
-    main { 
-        display: flex !important; 
-        flex-direction: column !important; 
+    main {
+        display: flex !important;
+        flex-direction: column !important;
     }
 
     /* 1. Header & Navigasyon */
@@ -1197,11 +1337,11 @@ nav a.active, nav a:hover {
         width: 100%;
         box-sizing: border-box;
         /* İstediğin o alt sarı çizgi */
-        border-bottom: 1px solid #f1c40f !important; 
+        border-bottom: 1px solid #f1c40f !important;
     }
 
     section {
-        scroll-margin-top: 70px; 
+        scroll-margin-top: 70px;
     }
 
     /* Dokununca Büyüyen Buton Efekti */
@@ -1212,7 +1352,8 @@ nav a.active, nav a:hover {
         width: 30px;
         height: 21px;
         cursor: pointer;
-        z-index: 1001; /* Menü panelinin üstünde kalmalı */
+        z-index: 1001;
+        /* Menü panelinin üstünde kalmalı */
         transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
@@ -1222,45 +1363,48 @@ nav a.active, nav a:hover {
     }
 
     .menu-toggle .bar {
-    width: 100%;
-    height: 3px;
-    background-color: var(--primary);
-    border-radius: 10px;
-    transition: all 0.3s ease; /* Çizgilerin kayması için bu şart */
-}   
+        width: 100%;
+        height: 3px;
+        background-color: var(--primary);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        /* Çizgilerin kayması için bu şart */
+    }
 
     /* Tam Dengeli X İşareti */
-.menu-toggle.open .bar:nth-child(1) { 
-    /* 9 yerine 8.5px tam orta yolu bulacaktır */
-    transform: translateY(5.5px) rotate(45deg) !important; 
-}
+    .menu-toggle.open .bar:nth-child(1) {
+        /* 9 yerine 8.5px tam orta yolu bulacaktır */
+        transform: translateY(5.5px) rotate(45deg) !important;
+    }
 
-.menu-toggle.open .bar:nth-child(2) { 
-    opacity: 0 !important; 
-    transform: translateX(-10px) !important; 
-}
+    .menu-toggle.open .bar:nth-child(2) {
+        opacity: 0 !important;
+        transform: translateX(-10px) !important;
+    }
 
-.menu-toggle.open .bar:nth-child(3) { 
-    /* -9 yerine -8.5px */
-    transform: translateY(-8px) rotate(-45deg) !important; 
-}
+    .menu-toggle.open .bar:nth-child(3) {
+        /* -9 yerine -8.5px */
+        transform: translateY(-8px) rotate(-45deg) !important;
+    }
 
     .bar {
         width: 100%;
         height: 3px;
-        background-color: var(--primary) !important; /* Görünür olması için sarı yaptık */
+        background-color: var(--primary) !important;
+        /* Görünür olması için sarı yaptık */
         border-radius: 10px;
         display: block !important;
     }
 
     /* Menü Paneli: Kaymayan Perde Sistemi */
     .nav-container {
-        display: block !important; 
+        display: block !important;
         position: absolute;
         top: 70px;
         left: 0;
         width: 100%;
-        flex-direction: row !important; /* Mobilde logoyu ve hamburger menüyü yan yana tutar */
+        flex-direction: row !important;
+        /* Mobilde logoyu ve hamburger menüyü yan yana tutar */
         justify-content: center !important;
         background: rgba(10, 10, 10, 0.98);
         border-bottom: 1px solid #f1c40f;
@@ -1275,26 +1419,37 @@ nav a.active, nav a:hover {
 
     /* Menü Açıldığında */
     .nav-container.active {
-        max-height: 560px; /* İçeriğe göre yükseklik */
+        max-height: 560px;
+        /* İçeriğe göre yükseklik */
         opacity: 1;
         display: flex !important;
         visibility: visible;
     }
-    
+
     .nav-links {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Yatayda tam ortalar */
+        align-items: center;
+        /* Yatayda tam ortalar */
         justify-content: center;
         width: 100%;
         gap: 0.75rem;
         text-align: center;
-        padding: 0 1.875rem; /* Kenarlardan biraz boşluk */
+        padding: 0 1.875rem;
+        /* Kenarlardan biraz boşluk */
     }
 
-    .desktop-only { display: none !important; } /* Menü içindeki masaüstü GG'yi gizle */
-    .mobile-only { display: flex !important; } /* Mobil grubu içindeki GG'yi göster */
-    
+    .desktop-only {
+        display: none !important;
+    }
+
+    /* Menü içindeki masaüstü GG'yi gizle */
+    .mobile-only {
+        display: flex !important;
+    }
+
+    /* Mobil grubu içindeki GG'yi göster */
+
     /* Butonları Alt Alta Dizme Alanı */
     .mobile-action-group {
         display: flex;
@@ -1302,14 +1457,18 @@ nav a.active, nav a:hover {
         align-items: center;
         width: 100%;
         padding: 0 30px;
-        margin-top: 1rem !important; /* Linklerden sonraki boşluğu azalttık */
-        margin-bottom: 3.75rem !important; /* SARI ÇİZGİDEN (Alt sınırdan) uzaklaştırdık */
-        gap: 12px; /* GG ve Giriş Yap arası mesafe */
+        margin-top: 1rem !important;
+        /* Linklerden sonraki boşluğu azalttık */
+        margin-bottom: 3.75rem !important;
+        /* SARI ÇİZGİDEN (Alt sınırdan) uzaklaştırdık */
+        gap: 12px;
+        /* GG ve Giriş Yap arası mesafe */
     }
 
-    .mobile-action-group .gg-btn, 
+    .mobile-action-group .gg-btn,
     .mobile-action-group .mobile-login {
-        width: 100% !important; /* Genişliği full yap */
+        width: 100% !important;
+        /* Genişliği full yap */
         margin: 0 !important;
         padding: 12px !important;
         text-align: center;
@@ -1321,21 +1480,25 @@ nav a.active, nav a:hover {
         box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4) !important;
     }
 
-    .gg-btn.mobile-only, 
+    .gg-btn.mobile-only,
     .mobile-login {
         width: 100% !important;
-        max-width: 17.5rem; /* 280px */
-        height: 1.25rem !important; /* 50px */
+        max-width: 17.5rem;
+        /* 280px */
+        height: 1.25rem !important;
+        /* 50px */
         display: flex !important;
         align-items: center;
         justify-content: center;
-        border-radius: 0.625rem !important; /* 10px */
+        border-radius: 0.625rem !important;
+        /* 10px */
         margin: 0 auto !important;
     }
 
     .mobile-nav-actions {
         display: flex;
-        flex-direction: column; /* Üst üste diz */
+        flex-direction: column;
+        /* Üst üste diz */
         gap: 10px;
         padding: 20px 10px;
         width: 100%;
@@ -1362,16 +1525,20 @@ nav a.active, nav a:hover {
     }
 
 
-desktop-login {
-    display: none !important; /* PC'deki butonu gizle */
-}
+    desktop-login {
+        display: none !important;
+        /* PC'deki butonu gizle */
+    }
 
     .mobile-login {
         background-color: #f1c40f !important;
-        color: #000000 !important; /* Yazı rengi kesin siyah */
+        color: #000000 !important;
+        /* Yazı rengi kesin siyah */
         font-weight: 900 !important;
-        margin: 15px 20px !important; /* Biraz daha belirgin boşluk */
-        width: 125px !important; /* Butonun genişliğini artır */
+        margin: 15px 20px !important;
+        /* Biraz daha belirgin boşluk */
+        width: 125px !important;
+        /* Butonun genişliğini artır */
         border-radius: 8px !important;
         border: none !important;
         text-align: center !important;
@@ -1380,16 +1547,17 @@ desktop-login {
     }
 
     .mobile-login:hover {
-        background-color: #d4ac0d !important; /* Hover durumunda biraz koyulaşır */
+        background-color: #d4ac0d !important;
+        /* Hover durumunda biraz koyulaşır */
         color: #000000 !important;
     }
-  
+
 
     .nav-links a.mobile-login {
         color: #000000 !important;
     }
 
-    
+
     .nav-links a {
         padding: 8px 0 !important;
         text-align: center !important;
@@ -1397,8 +1565,9 @@ desktop-login {
         color: #fff !important;
         font-weight: 600 !important;
         text-decoration: none;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
-        white-space: nowrap; /* Linklerin taşmasını engeller */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        white-space: nowrap;
+        /* Linklerin taşmasını engeller */
         /* Linklerin tek tek gelme animasyonu */
         opacity: 0;
         transform: translateY(-10px);
@@ -1408,15 +1577,18 @@ desktop-login {
     .nav-container.active .nav-links a {
         opacity: 1;
         transform: translateY(0);
-        transition-delay: 0.2s; /* Menü açıldıktan hemen sonra başlar */
+        transition-delay: 0.2s;
+        /* Menü açıldıktan hemen sonra başlar */
     }
 
     .nav-links .active {
-        color: #f1c40f !important; /* Sarı renk vurgusu */
+        color: #f1c40f !important;
+        /* Sarı renk vurgusu */
     }
 
     .nav-links a:active {
-        background: rgba(241, 196, 15, 0.2); /* Dokunmatik geri bildirim */
+        background: rgba(241, 196, 15, 0.2);
+        /* Dokunmatik geri bildirim */
         color: #f1c40f !important;
     }
 
@@ -1447,13 +1619,14 @@ desktop-login {
         padding: 0 15px !important;
     }
 
-    .hero h2 { 
-        font-size: 24px !important; 
-        letter-spacing: 4px !important; 
-        color: #f1c40f !important; }
+    .hero h2 {
+        font-size: 24px !important;
+        letter-spacing: 4px !important;
+        color: #f1c40f !important;
+    }
 
-    .hero h1 { 
-        font-size: 46px !important; 
+    .hero h1 {
+        font-size: 46px !important;
         font-weight: 900 !important;
         line-height: 1.0 !important;
         margin: 10px 0 25px 0 !important;
@@ -1461,22 +1634,25 @@ desktop-login {
 
     /* Online Sayacı */
     .online-count {
-        font-size: 18px !important; /* Oyuncu sayısını da biraz büyüttük */
+        font-size: 18px !important;
+        /* Oyuncu sayısını da biraz büyüttük */
         margin-bottom: 20px !important;
         font-weight: 500 !important;
     }
 
-    .play-btn { 
-        padding: 20px 65px !important; 
-        font-size: 24px !important; 
-        border-radius: 12px !important; 
+    .play-btn {
+        padding: 20px 65px !important;
+        font-size: 24px !important;
+        border-radius: 12px !important;
     }
 
     /* 3. Haberler Bölümü */
     .news {
-        order: 2 !important; /* Hero'dan sonra */
+        order: 2 !important;
+        /* Hero'dan sonra */
         padding: 40px 5% !important;
-        border-top: 1px solid #f1c40f !important; /* Altına belirgin bir çizgi ekledik */
+        border-top: 1px solid #f1c40f !important;
+        /* Altına belirgin bir çizgi ekledik */
     }
 
     .section-title {
@@ -1495,26 +1671,30 @@ desktop-login {
 
     /* 4. Oyunlar Bölümü */
     .games {
-        order: 3 !important; /* Haberlerden sonra */
+        order: 3 !important;
+        /* Haberlerden sonra */
         padding-bottom: 60px !important;
-        border-top: 1px solid #f1c40f !important; /* Altına belirgin bir çizgi ekledik */
+        border-top: 1px solid #f1c40f !important;
+        /* Altına belirgin bir çizgi ekledik */
     }
 
     .game-cards {
-        grid-template-columns: 1fr !important; /* Mobilde tek sütun daha şık */
+        grid-template-columns: 1fr !important;
+        /* Mobilde tek sütun daha şık */
         padding: 0 5% !important;
         gap: 15px !important;
     }
 
-    .game-card { 
+    .game-card {
         width: 100% !important;
-        height: 120px !important; 
+        height: 120px !important;
     }
 
     /* 5. Gaming Gecesi - EN ALTA TAŞINDI VE ÇİZGİLİ */
     .gaming-night {
-        order: 4 !important; 
-        margin-top: 20px !important; /* Üstteki bölümle arasını biraz açtık */
+        order: 4 !important;
+        margin-top: 20px !important;
+        /* Üstteki bölümle arasını biraz açtık */
         padding: 30px 5% !important;
         display: flex !important;
         flex-direction: column !important;
@@ -1531,7 +1711,8 @@ desktop-login {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        gap: 10px !important; /* Yazı ve sayaç arasındaki boşluğu minimize ettik */
+        gap: 10px !important;
+        /* Yazı ve sayaç arasındaki boşluğu minimize ettik */
     }
 
     .gaming-info {
@@ -1548,9 +1729,11 @@ desktop-login {
 
     .gaming-info p {
         display: block !important;
-        font-size: 1rem !important; /* Yazıyı daha okunabilir yaptık */
+        font-size: 1rem !important;
+        /* Yazıyı daha okunabilir yaptık */
         color: #fff !important;
-        margin: 0 0 15px 0 !important; /* Sayaçla arasına tatlı bir boşluk */
+        margin: 0 0 15px 0 !important;
+        /* Sayaçla arasına tatlı bir boşluk */
         font-weight: 600 !important;
         letter-spacing: 1px !important;
     }
@@ -1572,13 +1755,13 @@ desktop-login {
         border-radius: 8px !important;
     }
 
-    .time-box span { 
-        font-size: 22px !important; 
+    .time-box span {
+        font-size: 22px !important;
         color: #f1c40f !important;
     }
 
-    .time-box label { 
-        font-size: 9px !important; 
+    .time-box label {
+        font-size: 9px !important;
         color: #888 !important;
     }
 
@@ -1614,7 +1797,7 @@ desktop-login {
     .hero h1 {
         font-size: 28px;
     }
-    
+
     .time-box {
         min-width: 50px;
         padding: 8px;

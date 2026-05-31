@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mertix Network • Yakında!</title>
-    <link rel="shortcut icon" href="../res/logo.png" type="image/x-icon">  
+    <link rel="shortcut icon" href="../res/logo.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
+
 <body>
     <div class="bg">
         <div class="blob"></div>
+    </div>
+
+    <div style="position: absolute; top: 20px; right: 20px; z-index: 1000;">
+        <a id="admin-login" href="managerlogin.html" class="admin-login">
+            <i class="fa-solid fa-user-shield"></i> YÖNETİCİ GİRİŞİ
+        </a>
     </div>
 
     <main class="container">
@@ -47,20 +55,22 @@
         </section>
 
         <form class="email-form" id="email-form">
-    <div class="input-wrapper">
-        <input data-key="email" type="email" required placeholder="E-posta adresini bırak..." />
-        <button type="submit" class="side-btn" title="Haber Ver">
-            <i class="fa-solid fa-bell"></i>
-        </button>
-    </div>
-</form>
+            <div class="input-wrapper">
+                <input data-key="email" type="email" required placeholder="E-posta adresini bırak..." />
+                <button type="submit" class="side-btn" title="Haber Ver">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+            </div>
+        </form>
 
         <div class="success-message hidden" id="success">
             <i class="fa-solid fa-check-circle"></i>
-            <span data-key="success">Kaydın başarıyla oluşturuldu. Sunucumuz aktif olduğunda e-posta adresine bir davetiye göndereceğiz.</span>
+            <span data-key="success">Kaydın başarıyla oluşturuldu. Sunucumuz aktif olduğunda e-posta adresine bir
+                davetiye göndereceğiz.</span>
         </div>
     </main>
     <script src="js/script.js" defer></script>
     <script src="js/loginlang.js" defer></script>
 </body>
+
 </html>
